@@ -1,4 +1,5 @@
 import React from "react";
+import seedsLogo from "../../public/assets/images/seedsLogo.png"
 
 function Navbar() {
 
@@ -27,13 +28,12 @@ function Navbar() {
                             </button>
                         </div>
                         <div class="flex-shrink-0 flex items-center">
-                            <img class="block lg:hidden h-8 w-auto" src="../../public/assets/images/seedsLogo.png" alt="Workflow logo"></img>
-                            <img class="hidden lg:block h-8 w-auto" src="../../public/assets/images/seedsLogo.png" alt="Workflow logo"></img>
+                            <img className="block lg:hidden h-8 w-auto" src={ seedsLogo } />
+                            <img className="hidden lg:block h-8 w-auto" src={ seedsLogo } />
                         </div>
                         <div class="hidden md:ml-6 md:flex md:items-center">
                             <a href="/"
-                                class="homeButton px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home
-            Page</a>
+                                class="homeButton px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home Page</a>
                             <a href="about"
                                 class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
                             <a href="login"
