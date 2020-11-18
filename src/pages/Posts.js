@@ -67,7 +67,7 @@ function Posts(){
     <div id="gratitude" className="m-auto text-center">
         <label className="block">
             <span className="font-sans font-bold text-2xl text-lime1">What is something you are grateful for today?</span>
-            <textarea id="gratitudeResponse" maxlength="255" className="form-textarea mt-1 block w-full" rows="3"
+            <textarea id="gratitudeResponse" maxLength="255" className="form-textarea mt-1 block w-full" rows="3"
                 placeholder="Enter some long form content."></textarea>
         </label>
         <br />
