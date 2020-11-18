@@ -1,18 +1,18 @@
 import React from "react";
-import seeds from "../public/assets/images/seeds.png"
+import seeds from "../assets/images/seeds.png"
 import Typical from "react-typical"
 
 function Home(){
     return(
     
         <div class="flex h-screen/1">
-        <div id="welcomeScreen" class="m-auto text-center">
+        <div id="welcomeScreen" class="m-auto text-center bg-green1">
 
         <img id="seeds" class="m-auto text-center w-1/2 h-auto" src={ seeds } />
             
         <h1 class = "text-lime1 md:text-4xl font-bold focus:outline-none sm:text-2xl">
             <Typical
-            steps={[' start small. grow fast. be happy. gi', 1500,]}
+            steps={[' start small. grow fast. be happy.', 1500,]}
             wrapper="b"
             />
         </h1>
@@ -25,10 +25,9 @@ function Home(){
             Sign up
         </button>
 
-        <script src="/public/assets/js/dist/index.js"></script>
+        </div>
+        </div>
 
-    </div>
-    </div>
     
     );
 }
