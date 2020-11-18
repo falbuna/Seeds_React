@@ -6,7 +6,7 @@ function Home(){
     return(
     
         <div class="flex h-screen/1">
-        <div id="welcomeScreen" class="m-auto text-center">
+        <div id="welcomeScreen" class="m-auto text-center bg-green1">
 
         <img id="seeds" class="m-auto text-center w-1/2 h-auto" src={ seeds } />
             
@@ -25,10 +25,9 @@ function Home(){
             Sign up
         </button>
 
-        <script src="/public/assets/js/dist/index.js"></script>
+        </div>
+        </div>
 
-    </div>
-    </div>
     
     );
 }
