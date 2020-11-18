@@ -9,11 +9,10 @@ function Home(){
         <div id="welcomeScreen" class="m-auto text-center">
 
         <img id="seeds" class="m-auto text-center w-1/2 h-auto" src={ seeds } />
-        <h1 id="seedsBottomText" class="animation text-green1 md:text-4xl font-bold focus:outline-none sm:text-2xl">start small. grow fast. be happy</h1>
             
-        <h1>
+        <h1 class = "text-lime1 md:text-4xl font-bold focus:outline-none sm:text-2xl">
             <Typical
-            steps={['start small. grow fast. be happy', 2000,]}
+            steps={[' start small. grow fast. be happy. gi', 1500,]}
             wrapper="b"
             />
         </h1>
