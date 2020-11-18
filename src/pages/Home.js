@@ -1,5 +1,5 @@
 import React from "react";
-import seeds from "../public/assets/images/seeds.png"
+import seeds from "../assets/images/seeds.png"
 import Typical from "react-typical"
 
 function Home(){
