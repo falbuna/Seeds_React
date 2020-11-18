@@ -12,7 +12,7 @@ function Home(){
             
         <h1 class = "text-lime1 md:text-4xl font-bold focus:outline-none sm:text-2xl">
             <Typical
-            steps={[' start small. grow fast. be happy, G', 1500,]}
+            steps={[' start small. grow fast. be happy.', 1500,]}
             wrapper="b"
             />
         </h1>
