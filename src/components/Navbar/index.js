@@ -1,5 +1,5 @@
 import React from "react";
-import seedsLogo from "../../public/assets/images/seedsLogo.png"
+import seedsLogo from "../../assets/images/seedsLogo.png"
 
 function Navbar() {
 
