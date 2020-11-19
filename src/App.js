@@ -11,7 +11,7 @@ import './index.css';
 function App() {
   return (
     <Router>
-    <div class="bg-green1">
+    <div className="bg-green1">
     <Navbar/>
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
