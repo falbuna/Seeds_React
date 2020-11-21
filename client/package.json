@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
     "autoprefixer": "^10.0.2",
+    "axios": "^0.21.0",
     "landing-blocks": "^1.0.61",
     "postcss-cli": "^8.2.0",
     "react": "^17.0.1",

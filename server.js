@@ -1,38 +1,56 @@
 const express = require('express');
-// const session = require("express-session");
-// const passport = require("./config/passport");
+const cors = require("cors");
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
+// const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const bodyParser = require("body-parser");
 
 
 const routes = require("./routes");
-// const isAuthenticated = require("./config/middleware/isAuthenticated");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 var db = require("./models");
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// app.use(express.static("public"));
+const secretCode = "Dee-looks-like-a-bird";
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// ----------------------------- MIDDLEWARE ----------------------------------
 
-// app.use(session({ secret: "keyboard-cat", resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(isAuthenticated);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(routes);
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
+);
 
+app.use(
+  session({
+    secret: secretCode,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
-// require('./controllers/view-routes')(app);
-// require('./controllers/api-routes')(app);
+app.use(cookieParser(secretCode));
+
+app.use(passport.initialize());
+app.use(passport.session());
+require("./config/passport")(passport);
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+// ------------------------------ ROUTES ------------------------------------
+
+
+app.use(routes);
+
