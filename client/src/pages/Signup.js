@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import Axios from "axios";
 import seedsLogo from "../assets/images/seedsLogo.png"
 
 function Signup(){
-    return(
+
+  const [registerUsername, setRegisterUsername] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
+  const register = () => {
+    Axios({
+      method: "POST",
+      data: {
+        email: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
+      url: "auth/register",
+    }).then((res) => console.log(res));
+  };
+
+  return(
 
 <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div className="max-w-md w-full">
@@ -24,12 +41,14 @@ function Signup(){
         <div>
           <input id="email-input" name="email" type="email" required
             className="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-            placeholder="email" />
+            placeholder="username"
+            onChange={(e) => setRegisterUsername(e.target.value)} />
         </div>
         <div className="-mt-px">
           <input id="password-input" aria-label="Password" name="password" type="password" required
             className="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-            placeholder="Password" />
+            placeholder="password"
+            onChange={(e) => setRegisterPassword(e.target.value)} />
         </div>
       </div>
 
@@ -52,7 +71,8 @@ function Signup(){
 
       <div className="mt-6">
         <button type="submit"
-          className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-lime1 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+          className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-lime1 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+          onClick={register}>
           <span className="absolute left-0 inset-y-0 flex items-center pl-3">
             <svg className="h-5 w-5 text-white group-hover:text-indigo-400 transition ease-in-out duration-150"
               fill="currentColor" viewBox="0 0 20 20">
