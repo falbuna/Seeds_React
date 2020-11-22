@@ -1,10 +1,20 @@
 const db = require("../models");
-
+const passport = require("passport");
 
 module.exports = {
-    // login: (req, res, next) => {
-
-    // },
+    login: (req, res, next) => {
+      passport.authenticate("local", (err, user, info) => {
+        if (err) throw err;
+        if (!user) res.send("No User Exists");
+        else {
+          req.logIn(user, (err) => {
+            if (err) throw err;
+            console.log(user);
+            res.send("Successfully Authenticated");
+          });
+        }
+      })(req, res, next);
+    },
 
     register: (req, res) => {
         db.User.findOne({ 

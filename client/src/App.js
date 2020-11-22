@@ -75,7 +75,7 @@ function App() {
       <div>
         <h1>Get User</h1>
         <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.name}</h1> : null}
+        {data ? <h1>Welcome Back {data.email}</h1> : null}
       </div>
     </div>
   );
