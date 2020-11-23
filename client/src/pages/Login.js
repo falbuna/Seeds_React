@@ -6,6 +6,8 @@ function Login() {
 
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [data, setData] = useState(null);
+    const []
 
     const login = () => {
       Axios({
@@ -18,6 +20,29 @@ function Login() {
         url: "auth/login",
       }).then((res) => console.log(res));
     };
+
+    const getUser = () => {
+      Axios({
+        method: "GET",
+        withCredentials: true,
+        url: "auth/user",
+      }).then((res) => {
+        setData(res.data);
+        console.log(res.data);
+      });
+    };
+
+    const handleLogin = () => {
+      login().then(function()
+      {
+        getUser().then(function(
+          if( data ){
+            
+          }
+        ))
+      }
+      )
+    }
 
   return (
 
