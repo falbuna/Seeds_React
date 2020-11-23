@@ -7,7 +7,7 @@ function Login() {
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [data, setData] = useState(null);
-    const []
+    
 
     const login = () => {
       Axios({
@@ -32,17 +32,6 @@ function Login() {
       });
     };
 
-    const handleLogin = () => {
-      login().then(function()
-      {
-        getUser().then(function(
-          if( data ){
-            
-          }
-        ))
-      }
-      )
-    }
 
   return (
 

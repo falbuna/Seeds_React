@@ -10,6 +10,4 @@ router.post("/register", userController.register);
 
 router.get("/members", userController.getUser);
 
-
-
 module.exports = router;
