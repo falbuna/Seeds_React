@@ -2,6 +2,7 @@ module.exports = {
     "development": {
         "username": "root",
         "password": "root",
+        "port": 8889,
         "database": "seeds_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -9,6 +10,7 @@ module.exports = {
     "test": {
         "username": "root",
         "password": "root",
+        "port": 8889,
         "database": "database_test",
         "host": "127.0.0.1",
         "dialect": "mysql"
