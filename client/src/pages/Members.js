@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import UserContext from "../utils/UserContext";
 
 function Members() {
+
+  // const { isLoggedin, userData, postsData, reasonsData } = useContext(UserContext);
+
   return (
     <div className="App">
       <div className="bg-lime1">

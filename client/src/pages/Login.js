@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
 import seedsLogo from "../assets/images/seedsLogo.png";
 import { withRouter } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 function Login({ history }) {
 
@@ -9,6 +10,18 @@ function Login({ history }) {
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
 
+  // const { isLoggedin, userData } = useContext(UserContext);
+
+  const { userState, setUserState } = useContext(UserContext)
+
+  function loggedIn(isLoggedin, next ){
+    if(isLoggedin){
+      return(next());
+    }
+    else{
+      history.push("/login")
+    }
+  }
 
   const login = () => {
     Axios({
@@ -19,7 +32,7 @@ function Login({ history }) {
       },
       withCredentials: true,
       url: "auth/login",
-    }).then((res) => console.log(res));
+    }).then((res) => console.log(res.data));
   };
 
   const getUser = () => {
@@ -31,16 +44,33 @@ function Login({ history }) {
     }).then((res) => {
       setData(res.data);
       console.log(res.data);
-      testing()
+      loggedIn();
     });
   };
+
+  const handleLogin = () => {
+    login().then(
+      getUser
+    )
+  }
 
   function testing() {
     history.push("./Members")
   }
 
+  useEffect(() => {
+    
+    test3();
+
+  }, [userState]);
+
   function test2(){
     console.log("working!")
+    setUserState({ ...userState, isLoggedin: true })
+  }
+
+  function test3(){
+    console.log(userState.isLoggedin)
   }
 
   return (
@@ -60,9 +90,7 @@ function Login({ history }) {
               <input id="email-input" name="email" type="email" required
                 className="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                 placeholder="username"
-                onChange={(e) => {setLoginUsername(e.target.value)
-                console.log(loginUsername)}
-                } />
+                onChange={(e) => setLoginUsername(e.target.value)} />
             </div>
             <div className="-mt-px">
               <input id="password-input" aria-label="Password" name="password" type="password" required
@@ -91,7 +119,7 @@ function Login({ history }) {
             <div className="mt-6">
               <button type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-lime1 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                onClick={getUser}>
+                onClick={test2}>
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <svg className="h-5 w-5 text-white group-hover:text-indigo-400 transition ease-in-out duration-150"
                     fill="currentColor" viewBox="0 0 20 20">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -8,11 +8,22 @@ import Posts from "./pages/Posts";
 import Members from "./pages/Members";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import UserContext from "./utils/UserContext";
 import './index.css';
 
 function App() {
+
+  const [userState, setUserState] = useState({
+    isLoggedin: false,
+    userData: null,
+    postsData: "",
+    reasonsData: ""
+  });
+
   return (
+
     <div className="bg-green1">
+      <UserContext.Provider value={{ userState, setUserState }}>
       <Navbar />
       <Router>
         <Switch>
@@ -26,7 +37,9 @@ function App() {
         </Switch>
       </Router>
       <Footer />
+      </UserContext.Provider>
     </div>
+
   );
 }
 
