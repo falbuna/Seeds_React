@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import seedsLogo from "../assets/images/seedsLogo.png"
-import { withRouter } from "react-router-dom"
+import seedsLogo from "../assets/images/seedsLogo.png";
+import { withRouter } from "react-router-dom";
 
 function Signup({ history }) {
 

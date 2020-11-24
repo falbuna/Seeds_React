@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import seedsLogo from "../assets/images/seedsLogo.png";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
 function Login({ history }) {
 
@@ -23,6 +23,7 @@ function Login({ history }) {
   };
 
   const getUser = () => {
+    console.log("working")
     Axios({
       method: "GET",
       withCredentials: true,
@@ -36,6 +37,10 @@ function Login({ history }) {
 
   function testing() {
     history.push("./Members")
+  }
+
+  function test2(){
+    console.log("working!")
   }
 
   return (
@@ -55,7 +60,9 @@ function Login({ history }) {
               <input id="email-input" name="email" type="email" required
                 className="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                 placeholder="username"
-                onChange={(e) => setLoginUsername(e.target.value)} />
+                onChange={(e) => {setLoginUsername(e.target.value)
+                console.log(loginUsername)}
+                } />
             </div>
             <div className="-mt-px">
               <input id="password-input" aria-label="Password" name="password" type="password" required
