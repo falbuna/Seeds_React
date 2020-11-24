@@ -8,6 +8,6 @@ router.post("/login", userController.login);
 // Matches with "/api/user/:id"
 router.post("/register", userController.register);
 
-router.get("/members", userController.getUser);
+router.get("/user", userController.getUser);
 
 module.exports = router;
