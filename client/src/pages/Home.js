@@ -1,5 +1,5 @@
 import React from "react";
-import seeds from "../assets/images/seeds.png"
+// import seeds from "../assets/images/seeds.png"
 import Typical from "react-typical"
 import { withRouter } from "react-router-dom"
 
@@ -18,7 +18,7 @@ function Home({ history }) {
         <div className="flex h-screen/1">
             <div id="welcomeScreen" className="m-auto text-center bg-green1">
 
-                <img id="seeds" className="m-auto text-center w-1/2 h-auto" src={seeds} alt="Seeds" />
+                <img id="seeds" className="m-auto text-center w-1/2 h-auto" src="/images/seeds.png" alt="Seeds" />
 
                 <h1 className="text-lime1 md:text-4xl font-bold focus:outline-none sm:text-2xl">
                     <Typical

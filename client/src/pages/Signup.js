@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import seedsLogo from "../assets/images/seedsLogo.png";
+// import seedsLogo from "../assets/images/seedsLogo.png";
 import { withRouter } from "react-router-dom";
 
 function Signup({ history }) {
@@ -33,7 +33,7 @@ function Signup({ history }) {
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div>
-          <img className="mx-auto h-auto w-16" src={seedsLogo} alt="Workflow" />
+          <img className="mx-auto h-auto w-16" src="/images/seedsLogo.png" alt="Workflow" />
           <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-white">
             Create your new account
       </h2>

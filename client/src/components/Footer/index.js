@@ -1,5 +1,5 @@
 import React from "react";
-import seedsLogo from "../../assets/images/seedsLogo.png"
+// import seedsLogo from "../../assets/images/seedsLogo.png"
 
 function Footer() {
 
@@ -20,7 +20,7 @@ function Footer() {
       </div>
     </nav>
     <div className="mt-8 flex justify-center space-x-6">
-    <img className="block h-6 w-auto" src={ seedsLogo } alt="" />
+    <img className="block h-6 w-auto" src="/images/seedsLogo.png" alt="" />
       <a href="https://github.com/falbuna/Seeds_React" className="text-gray-400 hover:text-gray-500">
         <span className="sr-only">GitHub</span>
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

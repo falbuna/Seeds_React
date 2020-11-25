@@ -1,5 +1,5 @@
 import React from "react";
-import seedsLogo from "../../assets/images/seedsLogo.png"
+// import seedsLogo from "../../assets/images/seedsLogo.png"
 
 function Navbar() {
 
@@ -30,8 +30,8 @@ function Navbar() {
                             </button>
                         </div>
                         <div className="flex-shrink-0 flex items-center">
-                            <img className="block lg:hidden h-8 w-auto" src={ seedsLogo } />
-                            <img className="hidden lg:block h-8 w-auto" src={ seedsLogo } />
+                            <img className="block lg:hidden h-8 w-auto" src="/images/seedsLogo.png" />
+                            <img className="hidden lg:block h-8 w-auto" src="/images/seedsLogo.png" />
                         </div>
                         <div className="hidden md:ml-6 md:flex md:items-center">
                             <a href="/"
