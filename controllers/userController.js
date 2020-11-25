@@ -10,7 +10,7 @@ module.exports = {
           req.logIn(user, (err) => {
             if (err) throw err;
             console.log(user);
-            res.send("Successfully Authenticated");
+            res.send(req.user);
           });
         }
       })(req, res, next);

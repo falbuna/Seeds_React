@@ -3,77 +3,40 @@ import Axios from "axios";
 // import seedsLogo from "../assets/images/seedsLogo.png";
 import { withRouter } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import Auth from "../utils/Auth";
+import isAuthenticated from "../utils/isAuthenticated"
 
 function Login({ history }) {
 
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
 
+  // const [authCheckComplete, setAuthCheckComplete] = useState(false);
+
+
+  // useEffect(function () {
+  //   history.push("/members");
+  // }, [authCheckComplete])
+
+  function loginHandler () {
+    Auth.login(loginUsername, loginPassword)
+      .then(function(result) {
+        if (isAuthenticated(result)) {
+          history.push("/Members")
+        }
+      })
+  }
+
+  function test () {
+    Auth.login(loginUsername, loginPassword)
+  }
   // const { isLoggedin, userData } = useContext(UserContext);
 
-  const { userState, setUserState } = useContext(UserContext)
-
-  function loggedIn(isLoggedin, next ){
-    if(isLoggedin){
-      return(next());
-    }
-    else{
-      history.push("/login")
-    }
-  }
-
-  const login = () => {
-    Axios({
-      method: "POST",
-      data: {
-        email: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
-      url: "auth/login",
-    }).then((res) => console.log(res.data));
-  };
-
-  const getUser = () => {
-    console.log("working")
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "auth/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-      loggedIn();
-    });
-  };
-
-  const handleLogin = () => {
-    login().then(
-      getUser
-    )
-  }
-
-  function testing() {
-    history.push("./Members")
-  }
-
-  useEffect(() => {
-    
-    test3();
-
-  }, [userState]);
-
-  function test2(){
-    console.log("working!")
-    setUserState({ ...userState, isLoggedin: true })
-  }
-
-  function test3(){
-    console.log(userState.isLoggedin)
-  }
+  // const { userState, setUserState } = useContext(UserContext)
 
   return (
+
+
 
     <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
@@ -119,7 +82,7 @@ function Login({ history }) {
             <div className="mt-6">
               <button type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-lime1 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                onClick={test2}>
+                onClick={loginHandler}>
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <svg className="h-5 w-5 text-white group-hover:text-indigo-400 transition ease-in-out duration-150"
                     fill="currentColor" viewBox="0 0 20 20">
