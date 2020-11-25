@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserContext from "../utils/UserContext";
 import Auth from "../utils/Auth";
+import Metrics from "../components/Metrics/Metrics"
 
 function Members() {
 
@@ -30,7 +31,7 @@ function Members() {
               <div className="p-auto max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
                 <div className="max-w-4xl mx-auto text-center font-bold">
                   <h2 className="text-3xl leading-9 text-white sm:text-4xl sm:leading-10">
-                    Welcome <span className="member-name">{ User }</span>
+                    Welcome <span className="member-name">{User}</span>
                   </h2>
                   <p className="text-lg text-white text-opacity-75 leading-6 font-medium">
                     Hopefully you're having a <span className="text-white">great</span> day!
@@ -64,22 +65,7 @@ function Members() {
                 </dl>
               </div>
             </div>
-            <div className="md:flex md:justify-around mt-16">
-              <div id="goodReasonsDiv" className="w-full md:w-1/3 m-2 hidden mb-6">
-                <p className="mt-14text-3xl leading-9 text-white sm:text-4xl sm:leading-10 max-w-4xl mx-auto text-center font-bold">Good Days</p>
-                <canvas id="goodReasons"></canvas>
-              </div>
-              <div id="badReasonsDiv" className="w-full md:w-1/3 m-2 hidden">
-                <p className="mt-14text-3xl leading-9 text-white sm:text-4xl sm:leading-10 max-w-4xl mx-auto text-center font-bold">Bad Days</p>
-                <canvas id="badReasons"></canvas>
-              </div>
-              <div className="w-1/3 m-2" hidden><canvas id="dayQualityChart"></canvas></div>
-            </div>
-            <div className="mt-14text-3xl leading-9 text-white sm:text-4xl sm:leading-10 max-w-4xl mx-auto text-center font-bold">
-              Total Reasons Log</div>
-            <div className="block w-1/2 m-auto flex mt-4 mb-16">
-              <canvas id="reasonsBarChart"></canvas>
-            </div>
+            <Metrics />
           </div>
 
       }
