@@ -1,8 +1,8 @@
 import Axios from "axios";
 
 
-export default {
-
+const Auth = {
+    
     login: function (loginUsername, loginPassword) {
         return Axios({
             method: "POST",
@@ -14,7 +14,7 @@ export default {
             url: "auth/login",
         })
     },
-
+    
     getUser: function () {
         return Axios({
             method: "GET",
@@ -22,7 +22,7 @@ export default {
             url: "auth/user",
         })
     },
-
+    
     register: function (registerName, registerUsername, registerPassword) {
         return Axios({
             method: "POST",
@@ -44,3 +44,4 @@ export default {
         }).then((res) => {});
     }
 }
+export default Auth; 

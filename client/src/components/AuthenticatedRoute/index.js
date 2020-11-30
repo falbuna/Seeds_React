@@ -1,31 +1,43 @@
-import { Route } from "react-router-dom";
+import { Route, withRouter} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-import isAuthenticated from "../utils/isAuthenticated";
+import isAuthenticated from "../../utils/isAuthenticated";
+import Auth from "../../utils/Auth";
 
 
-export default function render(props) {
+function AuthenticatedRoute({Component, Path, history}) {
 
     const [isAwaitingAuthentication, setIsAwaitingAuthentication] = useState(true);
     const [isAuthenticatedState, setIsAuthenticatedState] = useState(false);
 
     useEffect(function () {
-        isAuthenticated()
-            .then(function (result) {
+        let mounted = true;
+        Auth.getUser()
+        .then(function (result) {
+            if(mounted){
+                setIsAuthenticatedState(isAuthenticated(result));
                 setIsAwaitingAuthentication(false);
-                setIsAuthenticated(result);
-            })
-            .catch(function () {
-                setIsAwaitingAuthentication(true);
-                setIsAuthenticated(false);
-            })
-    }, []);
+            }
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
+        return () => mounted = false;
+    });
+    
+    useEffect(function() {
+        if (!isAuthenticatedState && !isAwaitingAuthentication) {
+            history.push("/login");
+        }
+    }, [isAwaitingAuthentication])
 
     return (
         isAwaitingAuthentication
-            ? <div>Authenticating...</div>
+            ? <h1>Authenticating...</h1>
             : isAuthenticatedState
-                ? <Route {...props}></Route>
-                : <Redirect to={path}></Redirect>
+                ? <Route exact path={Path} component={Component} />
+                : <h1>failed</h1>
     )
 }
+
+export default withRouter(AuthenticatedRoute)

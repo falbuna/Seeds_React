@@ -24,7 +24,7 @@ function Members() {
       {
         !userDataRetrieved
           ? <div>
-            just wait you impatient mother fucker
+            just wait
         </div>
           : <div className="App">
             <div className="bg-lime1">

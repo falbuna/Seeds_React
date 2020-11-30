@@ -38,5 +38,9 @@ module.exports = {
     },
     getUser: (req, res) => {
       res.send(req.user);
+    },
+    logout: (req, res) => {
+      req.logout()
+      res.status(200).end()
     }
 };

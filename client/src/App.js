@@ -9,6 +9,7 @@ import Members from "./pages/Members";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import UserContext from "./utils/UserContext";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import './index.css';
 
 function App() {
@@ -33,7 +34,9 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/posts" component={Posts} />
-          <Route exact path="/members" component={Members} />
+          {/* <Route exact path="/members" component={Members} /> */}
+          <AuthenticatedRoute Path="/members" Component={Members} />
+          {/* <AuthenticatedRoute Path="/posts" Component={Posts} /> */}
         </Switch>
       </Router>
       <Footer />
