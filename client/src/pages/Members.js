@@ -37,21 +37,20 @@ function Members() {
     })
   }
 
-  // function filterDayQuality(Post) {
-  //   console.log(Post.data.length)
-  //   var good_array = []
-  //   var bad_array = []
-  //   for (let i = 0; Post.data.length; i++) {
-  //     if (Post.data[i].day_quality === "Good") {
-  //       good_array.push(Post.data[i])
-  //     } else {
-  //       bad_array.push(Post.data[i])
-  //     }
-  //   }
-  //   setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
-  //   console.log(User.good_post_array)
-  //   console.log(User.bad_post_array)
-  // }
+  function filterDayQuality(Post) {
+    var good_array = []
+    var bad_array = []
+    for (let i = 0; i < Post.data.length; i++) {
+      if (Post.data[i].day_quality === "Good") {
+        good_array.push(Post.data[i]);
+      } else {
+        bad_array.push(Post.data[i])
+      }
+    }
+    // setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
+    console.log(good_array)
+    console.log(bad_array)
+  }
   // Matt Milici adds
 
 
