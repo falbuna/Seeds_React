@@ -37,7 +37,7 @@ function Members() {
 
 
   //Matt Milici adds
-  function getPosts() {
+  function getPosts(res) {
     API.getPost({
       user_id: User.user_id
     }).then(function (PostData) {
@@ -47,15 +47,17 @@ function Members() {
     })
   }
 
-  function filterDayQuality(Post) {
+  function filterDayQuality(Post, res) {
     var good_array = []
     var bad_array = []
+    console.log(res)
     for (let i = 0; i < Post.data.length; i++) {
       if (Post.data[i].day_quality === "Good") {
         good_array.push(Post.data[i]);
       } else {
         bad_array.push(Post.data[i])
       }
+      setUser({ ...User, userName: res.data.name, user_id: res.data.id, bad_post_array: bad_array, good_post_array: good_array })
     }
     setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
     // console.log(User)
