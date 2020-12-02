@@ -19,13 +19,21 @@ function Members() {
   useEffect(function () {
     Auth.getUser()
       .then(function (res) {
-        console.log(res)
+        // console.log(res)
         setUser({ ...User, user_id: res.data.id, userName: res.data.name });
-        console.log(res.data.name);
+        // console.log(res.data.name);
         setUserDataRetrieved(true);
-        getPosts()
       })
   }, [])
+
+  useEffect(function () {
+    if (userDataRetrieved) {
+      // console.log("working")
+      // console.log(User)
+      getPosts()
+    }
+      
+  }, [userDataRetrieved])
 
 
   //Matt Milici adds
@@ -33,6 +41,8 @@ function Members() {
     API.getPost({
       user_id: User.user_id
     }).then(function (PostData) {
+      // console.log(PostData)
+      // console.log("working")
       filterDayQuality(PostData)
     })
   }
@@ -47,12 +57,16 @@ function Members() {
         bad_array.push(Post.data[i])
       }
     }
-    // setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
+    setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
+    // console.log(User)
     console.log(good_array)
     console.log(bad_array)
   }
   // Matt Milici adds
 
+  useEffect(function () {
+    console.log(User);
+  }, [User])
 
   return (
     <div>

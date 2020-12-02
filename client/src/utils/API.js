@@ -12,7 +12,7 @@ const API = {
                 reason: reason
             },
             withCredentials: true,
-            url: "api/posts",
+            url: "api/addposts",
         }).then((res) => { console.log("OHH YAA") });
 
 
@@ -21,14 +21,17 @@ const API = {
     //added by matt milici
     getPost: ({ user_id }) => {
 
-        console.log("get post is being hit")
+        // console.log("get post is being hit")
         return Axios({
-            method: "GET",
+            method: "POST",
+            data: {
+                user_id: user_id
+            },
             withCredentials: true,
-            url: "api/posts",
+            url: "api/getposts",
         }).then((res) => {
-            console.log(res);
-            console.log("then is working")
+            // console.log(res);
+            // console.log("then is working")
             return res
         });
         //added by matt milici

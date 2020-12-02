@@ -7,7 +7,7 @@ const db = require("../../models");
 
 
 
-router.post("/posts", (req, res) => {
+router.post("/addposts", (req, res) => {
     db.Post.create({
             day_quality: req.body.day_quality,
             gratitude: req.body.gratitude,
@@ -22,10 +22,10 @@ router.post("/posts", (req, res) => {
         });
 });
 
-router.get("/posts", (req, res) => {
+router.post("/getposts", (req, res) => {
     db.Post.findAll({
             where: {
-                // user_id: req.body.user_id
+                user_id: req.body.user_id
             }
         })
         .then(function(data) {
