@@ -14,6 +14,7 @@ function Members() {
 
   const [User, setUser] = useState({ userName: "", user_id: "", good_day_percentage: 0, good_post_array: [], bad_post_array: [] });
   const [userDataRetrieved, setUserDataRetrieved] = useState(false);
+  const [postDataRetrieved, setPostDataRetrieved] = useState(false);
 
   // const { isLoggedin, userData, postsData, reasonsData } = useContext(UserContext);
   useEffect(function () {
@@ -37,7 +38,7 @@ function Members() {
 
 
   //Matt Milici adds
-  function getPosts(res) {
+  function getPosts() {
     API.getPost({
       user_id: User.user_id
     }).then(function (PostData) {
@@ -47,19 +48,18 @@ function Members() {
     })
   }
 
-  function filterDayQuality(Post, res) {
+  function filterDayQuality(Post) {
     var good_array = []
     var bad_array = []
-    console.log(res)
     for (let i = 0; i < Post.data.length; i++) {
       if (Post.data[i].day_quality === "Good") {
         good_array.push(Post.data[i]);
       } else {
         bad_array.push(Post.data[i])
       }
-      setUser({ ...User, userName: res.data.name, user_id: res.data.id, bad_post_array: bad_array, good_post_array: good_array })
     }
-    setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array })
+    setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array });
+    setPostDataRetrieved(true);
     // console.log(User)
     console.log(good_array)
     console.log(bad_array)
@@ -77,7 +77,9 @@ function Members() {
           ? <div>
             just wait
         </div>
-          : <div className="App">
+          : !postDataRetrieved
+            ? <div>Keep waiting</div>
+            : <div className="App">
             <div className="bg-lime1">
               <div className="p-auto max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
                 <div className="max-w-4xl mx-auto text-center font-bold">
