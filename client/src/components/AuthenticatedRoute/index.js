@@ -29,7 +29,7 @@ function AuthenticatedRoute({Component, Path, history}) {
         if (!isAuthenticatedState && !isAwaitingAuthentication) {
             history.push("/login");
         }
-    }, [isAwaitingAuthentication])
+    }, [isAwaitingAuthentication, isAuthenticatedState, history])
 
     return (
         isAwaitingAuthentication

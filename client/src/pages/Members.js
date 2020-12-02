@@ -68,7 +68,7 @@ function Members() {
 
   useEffect(function () {
     console.log(User);
-  }, [User])
+  }, [postDataRetrieved])
 
   return (
     <div>
@@ -76,7 +76,7 @@ function Members() {
         !userDataRetrieved
           ? <div>
             just wait
-        </div>
+            </div>
           : !postDataRetrieved
             ? <div>Keep waiting</div>
             : <div className="App">
