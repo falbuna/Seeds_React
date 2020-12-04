@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import "./style.css"
+// import "./style.css"
 
 function HistoryCalendar(){
 
