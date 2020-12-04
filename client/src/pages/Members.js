@@ -12,7 +12,7 @@ import API from "../utils/API"
 
 function Members() {
 
-  const [User, setUser] = useState({ userName: "", user_id: "", good_day_percentage: 0, totalPosts: 0, good_post_array: [], bad_post_array: [], currentGoodDayStreak: 0 });
+  const [User, setUser] = useState({ userName: "", user_id: "", good_day_percentage: 0, totalPosts: 0, all_post_array: [], good_post_array: [], bad_post_array: [], currentGoodDayStreak: 0 });
   const [userDataRetrieved, setUserDataRetrieved] = useState(false);
   const [postDataRetrieved, setPostDataRetrieved] = useState(false);
 
@@ -70,8 +70,9 @@ function Members() {
 
     var numberOfPosts = Post.data.length
     var goodDayPercent = Math.round((good_array.length / Post.data.length) * 100)
+    var allPosts = Post.data.reverse()
 
-    setUser({ ...User, bad_post_array: bad_array, good_post_array: good_array, good_day_percentage: goodDayPercent, totalPosts: numberOfPosts, currentGoodDayStreak: currentStreak });
+    setUser({ ...User, bad_post_array: bad_array, all_post_array: allPosts, good_post_array: good_array, good_day_percentage: goodDayPercent, totalPosts: numberOfPosts, currentGoodDayStreak: currentStreak });
     setPostDataRetrieved(true);
   }
   // Matt Milici adds
@@ -128,7 +129,7 @@ function Members() {
                   </dl>
                 </div>
               </div>
-              <Metrics goodPosts={User.good_post_array} badPosts={User.bad_post_array} />
+              <Metrics goodPosts={User.good_post_array} badPosts={User.bad_post_array} allPostsArray={User.all_post_array} />
             </div>
 
       }

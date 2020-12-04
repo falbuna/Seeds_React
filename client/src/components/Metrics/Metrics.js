@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LineChart from "../Charts/LineChart"
 import Members from "../../pages/Members"
 
 import Chart from "../Charts/Chart"
@@ -35,7 +36,36 @@ function Metrics(props) {
         return [work, family, friends, mental, other]
     }
 
-    console.log(filterArrays(props.goodPosts))
+    function buildLineChart(SpecificArray) {
+        var lineChartValue = 0
+        var LineChartArray = [0]
+        for (let i = 0; i < SpecificArray.length; i++) {
+            if (SpecificArray[i].day_quality === "Good") {
+                lineChartValue++
+                LineChartArray.push(lineChartValue)
+            } else {
+                lineChartValue--
+                LineChartArray.push(lineChartValue)
+            }
+        }
+        console.log(LineChartArray)
+        return LineChartArray
+    }
+    function buildLineChartXaxis(SpecificArray) {
+        var xAxisChartValue = 0
+        var xAxisChartArray = [0]
+        for (let i = 0; i < SpecificArray.length; i++) {
+            xAxisChartValue++
+            xAxisChartArray.push(xAxisChartValue)
+        }
+        return xAxisChartArray
+    }
+
+
+
+
+
+
 
     return (
         <div>
@@ -47,6 +77,7 @@ function Metrics(props) {
                     <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
                         'Mental', 'Other']} /></div>
             </div>
+            <LineChart data={buildLineChart(props.allPostsArray)} labels={buildLineChartXaxis(props.allPostsArray)} />
         </div>
 
 
