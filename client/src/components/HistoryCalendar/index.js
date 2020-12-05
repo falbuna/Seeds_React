@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-// import "./style.css"
+import React from 'react';
+import { Calendar, momentLocalizer} from 'react-big-calendar';
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+
+const localizer = momentLocalizer(moment);
 
 function HistoryCalendar(){
 
-    const [value, setValue] = useState(new Date());
-
-    function onChange(nextValue) {
-        setValue(nextValue);
-      }
-
       return (
-        <div>
-          <Calendar
-            onChange={onChange}
-            value={value}
-          />
-        </div>
-      )
-    }
+        <div style={{ height: 600 }}>
+        <Calendar
+          localizer={localizer}
+          events={[]}
+          views={["month"]}
+          startAccessor="startDate"
+          endAccessor="endDate"
+        />
+      </div>
+    )
+       
+  }
 
   export default HistoryCalendar;
