@@ -41,10 +41,11 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/posts" component={Posts} />
-          <Route exact path="/history" component={History} />
+          {/* <Route exact path="/history" component={History} /> */}
           {/* <Route exact path="/members" component={Members} /> */}
           <AuthenticatedRoute exact path="/posts" Component={Posts} />
           <AuthenticatedRoute exact path="/members" Component={Members} />
+          <AuthenticatedRoute exact path="/history" Component={History} />
         </Switch>
       </Router>
       <Footer />

@@ -1,23 +1,59 @@
-import React from "react";
-// import seedsLogo from "../../assets/images/seedsLogo.png"
+import React, { useState, useContext, useEffect } from "react";
+import Auth from "../../utils/Auth";
+import UserContext from "../../utils/UserContext";
 
 function Footer() {
+
+  const { userState, setUserState } = useContext(UserContext);
+
+  function handleLogout() {
+    Auth.logout()
+    setUserState({
+        loggedIn: false,
+        userName: "",
+        userEmail: "",
+        user_id: "",
+        good_day_percentage: 0, 
+        totalPosts: 0, 
+        all_posts: [],
+        good_post_array: [], 
+        bad_post_array: [], 
+        currentGoodDayStreak: 0
+      })
+}
 
     return (
 
 <footer className="bg-green1">
   <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden space-y-8 sm:px-6 lg:px-8">
     <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
-      <div className="px-5 py-2">
-        <a href="/about" className="text-base text-gray-500 hover:text-gray-900">
+      <div>
+        <a href="/about" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
           About
         </a>
       </div>
-      <div className="px-5 py-2">
-        <a href="/login" className="text-base text-gray-500 hover:text-gray-900">
-          Login
-        </a>
-      </div>
+      {
+        userState.loggedIn
+            ? 
+            <div>
+                  <a href="/members" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
+                    Members
+                  </a>
+                  <a href="/History" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
+                    History
+                  </a>
+                  <a href="home" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900" onClick={handleLogout}>
+                    Logout
+                  </a>
+            </div>
+            : <div>
+                <a href="/login" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
+                  Login
+                </a>
+              </div>
+      
+      }
+
     </nav>
     <div className="mt-8 flex justify-center space-x-6">
     <img className="block h-6 w-auto" src="/images/seedsLogo.png" alt="" />
