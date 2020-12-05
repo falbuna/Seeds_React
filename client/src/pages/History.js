@@ -1,7 +1,6 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext } from "react";
 import UserContext from "../utils/UserContext";
 import HistoryCalendar from '../components/HistoryCalendar';
-import Auth from "../utils/Auth";
 
 
 function History(){
