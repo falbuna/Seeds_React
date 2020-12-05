@@ -55,7 +55,7 @@ function Members() {
                   </dl>
                 </div>
               </div>
-              <Metrics goodPosts={userState.good_post_array} badPosts={userState.bad_post_array} />
+              <Metrics goodPosts={userState.good_post_array} badPosts={userState.bad_post_array} allPostsArray={userState.all_posts} />
             </div>
 
 
