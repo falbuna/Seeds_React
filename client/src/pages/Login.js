@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
 // import seedsLogo from "../assets/images/seedsLogo.png";
 import { withRouter } from "react-router-dom";
-import UserContext from "../utils/UserContext";
+
 import Auth from "../utils/Auth";
 import isAuthenticated from "../utils/isAuthenticated"
 
@@ -11,28 +11,15 @@ function Login({ history }) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // const [authCheckComplete, setAuthCheckComplete] = useState(false);
-
-
-  // useEffect(function () {
-  //   history.push("/members");
-  // }, [authCheckComplete])
-
   function loginHandler () {
     Auth.login(loginUsername, loginPassword)
       .then(function(result) {
         if (isAuthenticated(result)) {
+          console.log(result)
           history.push("/Members")
         }
       })
   }
-
-  function test () {
-    Auth.login(loginUsername, loginPassword)
-  }
-  // const { isLoggedin, userData } = useContext(UserContext);
-
-  // const { userState, setUserState } = useContext(UserContext)
 
   return (
 

@@ -10,7 +10,16 @@ module.exports = {
           req.logIn(user, (err) => {
             if (err) throw err;
             console.log(user);
-            res.send(req.user);
+            if (req.user) {
+              const userInfo = {
+                name: req.user.name,
+                id: req.user.id,
+                email: req.user.email
+              }
+              res.send(userInfo);
+            } else {
+              res.send(req.user);
+            }
           });
         }
       })(req, res, next);
@@ -37,7 +46,16 @@ module.exports = {
         });
     },
     getUser: (req, res) => {
-      res.send(req.user);
+      if (req.user) {
+        const userInfo = {
+          name: req.user.name,
+          id: req.user.id,
+          email: req.user.email
+        }
+        res.send(userInfo);
+      } else {
+        res.send(req.user);
+      }
     },
     logout: (req, res) => {
       req.logout()

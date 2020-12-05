@@ -15,31 +15,37 @@ import './index.css';
 function App() {
 
   const [userState, setUserState] = useState({
-    isLoggedin: false,
-    userData: null,
-    postsData: "",
-    reasonsData: ""
+    loggedIn: false,
+    userName: "",
+    userEmail: "",
+    user_id: "",
+    good_day_percentage: 0, 
+    totalPosts: 0, 
+    all_posts: [],
+    good_post_array: [], 
+    bad_post_array: [], 
+    currentGoodDayStreak: 0
   });
 
   return (
 
     <div className="bg-green1">
       <UserContext.Provider value={{ userState, setUserState }}>
-      <Navbar />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/posts" component={Posts} />
-          {/* <Route exact path="/members" component={Members} /> */}
-          <AuthenticatedRoute Path="/members" Component={Members} />
-          {/* <AuthenticatedRoute Path="/posts" Component={Posts} /> */}
-        </Switch>
-      </Router>
-      <Footer />
+        <Navbar />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            {/* <Route exact path="/posts" component={Posts} /> */}
+            {/* <Route exact path="/members" component={Members} /> */}
+            <AuthenticatedRoute exact path="/posts" Component={Posts} />
+            <AuthenticatedRoute exact path="/members" Component={Members} />
+          </Switch>
+        </Router>
+        <Footer />
       </UserContext.Provider>
     </div>
 

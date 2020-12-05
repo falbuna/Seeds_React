@@ -35,8 +35,6 @@ function Metrics(props) {
         return [work, family, friends, mental, other]
     }
 
-    console.log(filterArrays(props.goodPosts))
-
     return (
         <div>
             <div className="md:flex md:justify-around">

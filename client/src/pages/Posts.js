@@ -42,6 +42,8 @@ function Posts({ history }) {
             gratitude: stage.gratitudeAnswer,
             user_id: stage.user_id,
             reason: stage.reasonAnswer
+        }).then(function (result) {
+            console.log(result);
         })
     }
 
@@ -77,7 +79,7 @@ function Posts({ history }) {
     function submitAll() {
         console.log(stage)
         addPosts();
-        history.push("/members");
+        // history.push("/members");
     }
 
     return (
@@ -96,7 +98,9 @@ function Posts({ history }) {
                                     name="gratitudeAnswer"
                                     rows={4}
                                 />
+                                <a href="/members">
                                 <button className="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none" onClick={submitAll}>Submit</button>
+                                </a>
                             </div>)
                         : stage.prompts[stage.stage].map(reason =>
                             (<button className="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none" onClick={RenderNewButtons}>{reason}</button>
