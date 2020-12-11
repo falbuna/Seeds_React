@@ -35,6 +35,31 @@ const API = {
             return res
         });
         //added by matt milici
+    },
+
+    addReason: ({ reason, user_id }) => {
+        return Axios({
+            method: "POST",
+            data: {
+                reason: reason,
+                user_id: user_id
+            },
+            withCredentials: true,
+            url: "api/addreasons",
+        }).then((res) => { console.log("success") });
+    },
+
+    getReason: ({ user_id }) => {
+        return Axios({
+            method: "POST",
+            data: {
+                user_id: user_id
+            },
+            withCredentials: true,
+            url: "api/getreasons"
+        }).then((res) => {
+            return res
+        });
     }
 }
 

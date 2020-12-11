@@ -7,7 +7,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         gratitude: DataTypes.STRING,
         reason: DataTypes.STRING
-
     });
 
     Post.associate = function (models) {

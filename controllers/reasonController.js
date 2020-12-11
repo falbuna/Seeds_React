@@ -2,10 +2,7 @@ const db = require("../models");
 
 module.exports = {
     addReason: (req, res) => {
-        db.Post.create({
-            day_quality: req.body.day_quality,
-            gratitude: req.body.gratitude,
-            user_id: req.body.user_id,
+        db.Reason.create({
             reason: req.body.reason
           })
             .then(function () {

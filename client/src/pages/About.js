@@ -1,6 +1,8 @@
 import React from "react";
-
+import API from "../utils/API";
 function About() {
+
+
     return (<div>
         <div className="py-16 bg-green1 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

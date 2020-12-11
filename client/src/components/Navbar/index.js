@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Auth from "../../utils/Auth";
 import UserContext from "../../utils/UserContext";
 
@@ -55,24 +56,24 @@ function Navbar() {
                                 <img className="hidden lg:block h-8 w-auto" src="/images/seedsLogo.png" />
                             </div>
                             <div className="hidden md:ml-6 md:flex md:items-center">
-                                <a href="/"
-                                    className="homeButton px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home Page</a>
-                                <a href="about"
-                                    className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+                                <Link to="/"
+                                    className="homeButton px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home Page</Link>
+                                <Link to="about"
+                                    className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</Link>
 
-                                {/* <a href="login"
-                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
+                                {/* <Link to="login"
+                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</Link>
 
-                                <a href="home"
+                                <Link to="home"
                                     className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                    onClick={handleLogout}>Logout</a> */}
+                                    onClick={handleLogout}>Logout</Link> */}
                                 {
                                     userState.loggedIn
-                                        ? <a href="home"
+                                        ? <Link to="home"
                                             className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                            onClick={handleLogout}>Logout</a>
-                                        : <a href="login"
-                                            className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
+                                            onClick={handleLogout}>Logout</Link>
+                                        : <Link to="login"
+                                            className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</Link>
                                 }
                             </div>
                         </div>
@@ -91,7 +92,7 @@ function Navbar() {
                                                         clipRule="evenodd" />
                                                 </svg>
 
-                                                <a href="posts">New Post</a>
+                                                <Link to="posts">New Post</Link>
                                             </button>
                                         </span>
                                     </div>
@@ -131,19 +132,19 @@ function Navbar() {
 
                 <div className={(navbarOpen ? "md:hidden" : "hidden")}>
                     <div className="px-2 pt-2 pb-3 sm:px-3">
-                        <a href="/"
+                        <Link to="/"
                             className="homeButton block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home
-        Page</a>
-                        <a href="about"
-                            className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+        Page</Link>
+                        <Link to="about"
+                            className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</Link>
 
                         {
                             userState.loggedIn
-                                ? <a href="home"
+                                ? <Link to="home"
                                     className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                    onClick={handleLogout}>Logout</a>
-                                : <a href="login"
-                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
+                                    onClick={handleLogout}>Logout</Link>
+                                : <Link to="login"
+                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</Link>
                         }
 
                     </div>

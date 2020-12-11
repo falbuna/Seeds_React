@@ -3,10 +3,10 @@ module.exports = function (sequelize, DataTypes) {
         // Giving the Author model a name of type STRING
         reason: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [3]
-            }
+            allowNull: false
+            // validate: {
+            //   len: [3]
+            // }
         }
     });
 
@@ -14,8 +14,9 @@ module.exports = function (sequelize, DataTypes) {
         Reason.belongsTo(models.User, {
             foreignKey: "user_id"
           })
+
         // Reason.hasMany(models.Post, {
-        //     foreignKey: "user_id"
+        //     foreignKey: "reason_id"
         //   });
     };
 
