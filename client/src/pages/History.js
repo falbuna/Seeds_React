@@ -1,7 +1,11 @@
-import React from 'react';
-import HistoryCalendar from '../components/HistoryCalendar'
+import React, { useContext } from "react";
+import UserContext from "../utils/UserContext";
+import HistoryCalendar from '../components/HistoryCalendar';
+
 
 function History(){
+
+    // const {userState, setUserState} = useContext(UserContext);
 
     return (
         <div>

@@ -69,11 +69,17 @@ function Navbar() {
                                     onClick={handleLogout}>Logout</Link> */}
                                 {
                                     userState.loggedIn
-                                        ? <Link to="home"
+                                        ? <div>
+                                            <a href="members"
+                                            className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Members</a>                                             
+                                            <a href="history"
+                                            className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">History</a>                                            
+                                            <a href="home"
                                             className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                            onClick={handleLogout}>Logout</Link>
-                                        : <Link to="login"
-                                            className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</Link>
+                                            onClick={handleLogout}>Logout</a>
+                                            </div>
+                                        : <a href="login"
+                                            className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
                                 }
                             </div>
                         </div>
@@ -117,8 +123,8 @@ function Navbar() {
                                             className="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
                                             id="user-menu" aria-label="User menu" aria-haspopup="true">
                                             <div className="h-8 w-8 rounded-full"><i className="fas fa-user-circle"></i></div>
-
-                                            <img className="h-8 w-8 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img>
+{/* 
+                                            <img className="h-8 w-8 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img> */}
                                         </button>
                                     </div>
                                 </div>
@@ -140,18 +146,24 @@ function Navbar() {
 
                         {
                             userState.loggedIn
-                                ? <Link to="home"
+                                ? <div>
+                                <a href="Members"
+                                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Members</a>
+                                <a href="History"
+                                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">History</a>
+                                <a href="home"
                                     className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                    onClick={handleLogout}>Logout</Link>
-                                : <Link to="login"
-                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</Link>
+                                    onClick={handleLogout}>Logout</a>
+                                    </div>
+                                : <a href="login"
+                                    className="logButton ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
                         }
 
                     </div>
                     <div className="pt-4 pb-3 border-t border-gray-700">
                         <div className="flex items-center px-5 sm:px-6">
                             <div className="flex-shrink-0">
-                                <img className="h-10 w-10 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img>
+                                {/* <img className="h-10 w-10 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img> */}
                             </div>
                             <div className="ml-3">
                                 <div className="text-base font-medium leading-6 text-white mobileNavName"></div>

@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Posts from "./pages/LogPost";
 import Members from "./pages/Members";
 import History from "./pages/History";
+import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import UserContext from "./utils/UserContext";
