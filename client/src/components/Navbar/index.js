@@ -122,8 +122,8 @@ function Navbar() {
                                             className="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
                                             id="user-menu" aria-label="User menu" aria-haspopup="true">
                                             <div className="h-8 w-8 rounded-full"><i className="fas fa-user-circle"></i></div>
-
-                                            <img className="h-8 w-8 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img>
+{/* 
+                                            <img className="h-8 w-8 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img> */}
                                         </button>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@ function Navbar() {
                     <div className="pt-4 pb-3 border-t border-gray-700">
                         <div className="flex items-center px-5 sm:px-6">
                             <div className="flex-shrink-0">
-                                <img className="h-10 w-10 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img>
+                                {/* <img className="h-10 w-10 rounded-full" src="../../public/assets/images/userlogo.png" alt=""></img> */}
                             </div>
                             <div className="ml-3">
                                 <div className="text-base font-medium leading-6 text-white mobileNavName"></div>
