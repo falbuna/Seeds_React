@@ -35,3 +35,5 @@ router.post('/', uploads.single('image'), async (req, res) => {
     const image = req.files.path;
     res. json({ msg: 'image created'})
 });
+
+module.exports = router;
