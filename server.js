@@ -29,6 +29,9 @@ app.use(
   })
 );
 
+app.use(express.static('uploads'));
+app.use('api/images', require('./routes/api/images.js'));
+
 app.use(
   session({
     secret: secretCode,
