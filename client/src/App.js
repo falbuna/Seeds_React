@@ -44,7 +44,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             {/* <Route exact path="/posts" component={Posts} /> */}
-            <Route exact path="/history" component={History} />
+            <AuthenticatedRoute exact path="/history" component={History} />
             {/* <Route exact path="/members" component={Members} /> */}
             <AuthenticatedRoute exact path="/posts" Component={Posts} />
             <AuthenticatedRoute exact path="/members" Component={Members} />
