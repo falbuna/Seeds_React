@@ -63,7 +63,11 @@ function AuthenticatedRoute({ Component, ...rest }) {
         API.getPost({
             user_id: userState.user_id
         }).then(function (PostData) {
-            setUserState({ ...userState, all_posts: PostData.data})
+            setUserState({ 
+                ...userState, 
+                all_posts: PostData.data,
+                postsRetrieved: true
+            })
             setPostDataRetrieved(true)
         })
     }
@@ -98,7 +102,8 @@ function AuthenticatedRoute({ Component, ...rest }) {
             good_post_array: good_array,
             good_day_percentage: goodDayPercent,
             totalPosts: numberOfPosts,
-            currentGoodDayStreak: currentStreak
+            currentGoodDayStreak: currentStreak,
+            postsSorted: true
         })
         setPostDataSorted(true);
     }

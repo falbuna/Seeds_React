@@ -9,29 +9,56 @@ const db = require("../../models");
 
 router.post("/addposts", (req, res) => {
     db.Post.create({
-            day_quality: req.body.day_quality,
-            gratitude: req.body.gratitude,
-            user_id: req.body.user_id,
-            reason: req.body.reason
-        })
-        .then(function() {
+        day_quality: req.body.day_quality,
+        gratitude: req.body.gratitude,
+        user_id: req.body.user_id,
+        reason: req.body.reason
+    })
+        .then(function () {
             res.status(200).end();
         })
-        .catch(function(err) {
+        .catch(function (err) {
             res.status(401).json(err);
         });
 });
 
 router.post("/getposts", (req, res) => {
     db.Post.findAll({
-            where: {
-                user_id: req.body.user_id
-            }
-        })
-        .then(function(data) {
+        where: {
+            user_id: req.body.user_id
+        }
+    })
+        .then(function (data) {
             res.json(data);
         })
-        .catch(function(err) {
+        .catch(function (err) {
+            res.status(401).json(err);
+        });
+});
+
+router.post("/getreasons", (req, res) => {
+    db.Reason.findAll({
+        where: {
+            user_id: req.body.user_id
+        }
+    })
+        .then(function (data) {
+            res.json(data);
+        })
+        .catch(function (err) {
+            res.status(401).json(err);
+        });
+});
+
+router.post("/addreasons", (req, res) => {
+    db.Reason.create({
+        reason: req.body.reason,
+        user_id: req.body.user_id
+    })
+        .then(function () {
+            res.status(200).end();
+        })
+        .catch(function (err) {
             res.status(401).json(err);
         });
 });
