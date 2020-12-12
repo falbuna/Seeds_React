@@ -1,7 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
 import UserContext from "../utils/UserContext";
 import Auth from "../utils/Auth";
-import Metrics from "../components/Metrics/Metrics"
+import Metrics from "../components/Metrics/Metrics";
+import Gravatar from 'react-gravatar';
 
 
 
@@ -23,6 +24,7 @@ function Members() {
                     <h2 className="text-3xl leading-9 text-white sm:text-4xl sm:leading-10">
                       Welcome <span className="member-name">{userState.userName}</span>
                     </h2>
+                      <Gravatar email={userState.userEmail} size={150} />
                     <p className="text-lg text-white text-opacity-75 leading-6 font-medium">
                       Hopefully you're having a <span className="text-white">great</span> day!
               </p>
