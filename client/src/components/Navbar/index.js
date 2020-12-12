@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/Auth";
 import UserContext from "../../utils/UserContext";
+import Gravatar from 'react-gravatar';
 
 // import seedsLogo from "../../assets/images/seedsLogo.png"
 
@@ -124,7 +125,7 @@ function Navbar() {
                                             id="user-menu" aria-label="User menu" aria-haspopup="true">
                                             <div className="h-8 w-8 rounded-full"><i className="fas fa-user-circle"></i></div>
 
-                                            {/* <img className="h-8 w-8 rounded-full" alt=""></img> */}
+                                            <Gravatar email={userState.userEmail} />
                                         </button>
                                     </div>
                                 </div>
@@ -163,7 +164,7 @@ function Navbar() {
                     <div className="pt-4 pb-3 border-t border-gray-700">
                         <div className="flex items-center px-5 sm:px-6">
                             <div className="flex-shrink-0">
-                                {/* <img className="h-10 w-10 rounded-full" alt=""></img> */}
+                            <Gravatar email={userState.userEmail} size={75} />
                             </div>
                             <div className="ml-3">
                                 <div className="text-base font-medium leading-6 text-white mobileNavName"></div>
