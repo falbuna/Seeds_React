@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -44,7 +44,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             {/* <Route exact path="/posts" component={Posts} /> */}
-            <AuthenticatedRoute exact path="/history" component={History} />
+            <AuthenticatedRoute exact path="/history" Component={History} />
             {/* <Route exact path="/members" component={Members} /> */}
             <AuthenticatedRoute exact path="/posts" Component={Posts} />
             <AuthenticatedRoute exact path="/members" Component={Members} />

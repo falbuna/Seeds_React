@@ -15,9 +15,9 @@ function Login({ history }) {
     Auth.login(loginUsername, loginPassword)
       .then(function(result) {
         if (isAuthenticated(result)) {
-          console.log(result)
           history.push("/Members")
         }
+        console.log(result)
       })
   }
 

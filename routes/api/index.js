@@ -63,6 +63,24 @@ router.post("/addreasons", (req, res) => {
         });
 });
 
+router.put("/updateposts", (req, res) => {
+    db.Post.update(
+        {
+            day_quality: req.body.day_quality,
+            reason: req.body.reason,
+            gratitude: req.body.gratitude
+        },
+        {
+            where: {
+                id: req.body.id
+            }
+        }
+    )
+        .then(function (data) {
+            res.json(data)
+        })
+})
+
 
 
 // router.post("/reasons", reasonController.addPost);

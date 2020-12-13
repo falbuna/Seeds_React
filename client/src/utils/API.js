@@ -37,6 +37,27 @@ const API = {
         //added by matt milici
     },
 
+    updatePost: ({
+        id,
+        day_quality,
+        reason,
+        gratitude
+    }) => {
+        return Axios({
+            method: "PUT",
+            data: {
+                id: id,
+                reason: reason,
+                day_quality: day_quality,
+                gratitude: gratitude
+            },
+            withCredentials: true,
+            url: "api/updateposts",
+        }).then((res) => {
+            console.log(res)
+        });
+    },
+
     addReason: ({ reason, user_id }) => {
         return Axios({
             method: "POST",
