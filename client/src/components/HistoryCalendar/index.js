@@ -12,25 +12,25 @@ const localizer = momentLocalizer(moment);
 function HistoryCalendar(){
 
   const {userState, setUserState} = useContext(UserContext);
-  const [badDayDates, setBadDates] = useState([]);
+  // const [badDayDates, setBadDates] = useState([]);
   const [showEvent, setshowEvent] = useState(false);
   const [modalInfo, setModal] = useState({day_quality: "", reason: "", gratitude: ""});
 
-  useEffect(() => {
-    sortBadDays()
-  }, [badDayDates])
+  // useEffect(() => {
+  //   sortBadDays()
+  // }, [badDayDates])
 
-  const eventStyleGetter = () => {
-    var style = {
-      backgroundColor: 'red',
-      opacity: 0.8,
-      color: 'white',
-      height: '30px'
-    };
-    return {
-      style: style
-    }
-  }
+  // const eventStyleGetter = () => {
+  //   var style = {
+  //     backgroundColor: 'blue',
+  //     opacity: 0.8,
+  //     color: 'white',
+  //     height: '30px'
+  //   };
+  //   return {
+  //     style: style
+  //   }
+  // }
 
   const handleClick = (event) => {
     console.log(event.resource)
@@ -52,48 +52,66 @@ function HistoryCalendar(){
   // const dayOfWeek = moment(userState.bad_post_array[0].createdAt).local().format("MM/DD/YYYY");
   // console.log(dayOfWeek)
 
-  function sortBadDays(){
-    let badDates;
-    for (let i = 0; i < userState.bad_post_array.length; i++){
-    badDates = moment(userState.bad_post_array[i].createdAt).local().format("MM/DD/YYYY");
-    badDayDates.push(badDates);
-  }
-  setBadDates(badDayDates)
-}
+//   function sortBadDays(){
+//     let badDates;
+//     for (let i = 0; i < userState.bad_post_array.length; i++){
+//     badDates = moment(userState.bad_post_array[i].createdAt).local().format("MM/DD/YYYY");
+//     badDayDates.push(badDates);
+//   }
+//   setBadDates(badDayDates)
+// }
 
 function createEvents(post_array){
-  var badEvents = [];
-  post_array.map(bad_post => {
-    const currentDay = moment(bad_post.createdAt).local().format("MM/DD/YYYY");
-    // const reason = bad_post.reason;
+  var Events = [];
+  post_array.map(allPosts => {
+    const currentDay = moment(allPosts.createdAt).local().format("MM/DD/YYYY");
+    const day_quality = allPosts.day_quality;
+    if(day_quality === "Bad"){
     const post = {
       allDay: true,
       end: currentDay,
       start: currentDay,
-      title: "Bad Day",
-      resource: bad_post
+      title: "Bad Post",
+      resource: allPosts,
+      className: "Bad"
     }
-    badEvents.push(post);
+    Events.push(post)
+  }else if(day_quality === "Good")
+    {
+      const post = {
+        allDay: true,
+        end: currentDay,
+        start: currentDay,
+        title: "Good Post",
+        resource: allPosts,
+      }
+      Events.push(post)
+    }
   })
-  return badEvents;
+  return Events;
 }
 
-// console.log(createEvents(userState.bad_post_array))
+console.log(createEvents(userState.bad_post_array))
 
       return (
-        <div className="rbc-calendar bg-lime1 text-white">
+        <div className="rbc-calendar bg-lime1 text-gray-700">
         <Calendar
           popup
           localizer={localizer}
-          events={createEvents(userState.bad_post_array)}
+          events={createEvents(userState.all_posts)}
           views={["month"]}
           startAccessor="start"
           endAccessor="end"
-          eventPropGetter={eventStyleGetter}
+          eventPropGetter={events => ({
+            style: {
+              backgroundColor: events.className === "Bad" ? 'red' : 'lightgreen',
+              opacity: 0.8,
+              color: 'black',
+              height: '30px'
+            }
+          }) 
+          }
           onSelectEvent={event => handleClick(event)}
-          // components={{
-          //   event: Event
-          // }}
         />
         <div>{showEvent
         ? <div className="fixed z-10 inset-0 overflow-y-auto">
