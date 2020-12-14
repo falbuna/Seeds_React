@@ -104,9 +104,11 @@ function Posts({ history }) {
     }
 
     return (
+    <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full">
         reasonsRetrieved
         ? (<div>
-            <div id="postScreen" className="flex h-screen/1">
+            <div id="postScreen" className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
                 <div className="m-auto text-center">
                     <p className="font-sans font-bold text-5xl text-lime1">{stage.promptHeader}</p>
                     {stage.showGratitude ?
@@ -132,6 +134,8 @@ function Posts({ history }) {
             </div>
         </div >)
         : <div>Waiting</div>
+        </div>
+    </div>
     );
 }
 export default withRouter(Posts);

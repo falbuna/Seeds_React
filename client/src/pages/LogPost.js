@@ -1,4 +1,4 @@
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import API from "../utils/API";
 import UserContext from "../utils/UserContext";
@@ -10,7 +10,7 @@ import ReasonsPrompt from "../components/ReasonPrompt";
 import NewReasonPrompt from "../components/NewReasonPrompt";
 import GratitudePrompt from "../components/GratitudePrompt";
 
-function Posts() {
+function Posts( {history} ) {
 
     const { userState, setUserState } = useContext(UserContext);
     const [reasons, setReasons] = useState([]);
@@ -149,9 +149,13 @@ function Posts() {
                         user_id: userState.user_id
                     }).then(function () {
                         setPostSent(true);
+                        setUserState( { ...userState, postsRetrieved: false } )
+                        history.push("/members");
                     })
                 } else {
                     setPostSent(true);
+                    setUserState( { ...userState, postsRetrieved: false } )
+                    history.push("/members");
                 }
             })
             // history.push("/members")
@@ -159,7 +163,8 @@ function Posts() {
     }
 
     return (
-        <div>
+        <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full">
             {
                 retrievedReasons
                     ? <div>
@@ -195,6 +200,7 @@ function Posts() {
                     : <div>wait</div>
             }
         </div>
+        </div>
     )
 }
-export default Posts;
+export default withRouter(Posts);

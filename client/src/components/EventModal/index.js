@@ -66,7 +66,7 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
     const handleSubmitChanges = () => {
         API.updatePost({
             id: modalInfo.id,
-            day_qualtiy: modalInfo.day_quality,
+            day_quality: modalInfo.day_quality,
             reason: modalInfo.reason,
             gratitude: modalInfo.gratitude
         }).then(function () {

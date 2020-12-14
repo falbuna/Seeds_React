@@ -8,15 +8,16 @@ import Title from "../components/Title";
 import HistoryCalendar from '../components/HistoryCalendar';
 
 
-//Matt Milici adds
-import API from "../utils/API"
-// Matt Milici adds
-
-
 
 function Members() {
 
   const {userState, setUserState} = useContext(UserContext);
+  
+    useEffect(() => {
+    if( !userState.postsRetrieved){
+      window.location.reload()
+    }
+    }, [userState])
 
   return (
     <div className="App">

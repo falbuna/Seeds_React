@@ -6,7 +6,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Posts from "./pages/LogPost";
 import Members from "./pages/Members";
-import History from "./pages/History";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -44,7 +43,6 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             {/* <Route exact path="/posts" component={Posts} /> */}
-            <AuthenticatedRoute exact path="/history" Component={History} />
             {/* <Route exact path="/members" component={Members} /> */}
             <AuthenticatedRoute exact path="/posts" Component={Posts} />
             <AuthenticatedRoute exact path="/members" Component={Members} />
