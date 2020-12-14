@@ -10,18 +10,18 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build && npm run build"
+    "heroku-postbuild": "npm run install && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Iansachs1/Seeds-V2-React.git"
+    "url": "git+https://github.com/falbuna/Seeds_React"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Iansachs1/Seeds-V2-React/issues"
   },
-  "homepage": "https://github.com/Iansachs1/Seeds-V2-React#readme",
+  "homepage": "https://github.com/falbuna/Seeds_React#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
