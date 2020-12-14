@@ -61,12 +61,6 @@ function Metrics(props) {
         return xAxisChartArray
     }
 
-
-
-
-
-
-
     return (
         <div>
             <div className="md:flex md:justify-around">

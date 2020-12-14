@@ -3,7 +3,8 @@ import UserContext from "../utils/UserContext";
 import Auth from "../utils/Auth";
 import Metrics from "../components/Metrics/Metrics";
 import Gravatar from 'react-gravatar';
-
+import DailyStats from '../components/Stats';
+import HistoryCalendar from '../components/HistoryCalendar';
 
 
 //Matt Milici adds
@@ -24,7 +25,7 @@ function Members() {
                     <h2 className="text-3xl leading-9 text-white sm:text-4xl sm:leading-10">
                       Welcome <span className="member-name">{userState.userName}</span>
                     </h2>
-                      <Gravatar email={userState.userEmail} size={75} />
+                      {/* <Gravatar email={userState.userEmail} size={75} /> */}
                     <p className="text-lg text-white text-opacity-75 leading-6 font-medium">
                       Hopefully you're having a <span className="text-white">great</span> day!
               </p>
@@ -58,6 +59,18 @@ function Members() {
                 </div>
               </div>
               <Metrics goodPosts={userState.good_post_array} badPosts={userState.bad_post_array} allPostsArray={userState.all_posts} />
+              <DailyStats allPostsArray={userState.all_posts}></DailyStats>
+              <div>
+                <div>
+                  <div className="p-auto max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+                    <div className="max-w-4xl mx-auto text-center font-bold">
+                      <div className="text-md text-white">
+                        <HistoryCalendar />
+                      </div>
+                    </div>
+                  </div>              
+                </div>
+              </div>
             </div>
 
 
