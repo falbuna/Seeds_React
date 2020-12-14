@@ -5,7 +5,7 @@ module.exports = {
     login: (req, res, next) => {
       passport.authenticate("local", (err, user, info) => {
         if (err) throw err;
-        if (!user) res.send("No User Exists.");
+        if (!user) res.send(info.message);
         else {
           req.logIn(user, (err) => {
             if (err) throw err;
