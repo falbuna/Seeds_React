@@ -10,14 +10,20 @@ function Login({ history }) {
 
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loginError, setLoginError] = useState(false);
 
-  function loginHandler () {
+  function loginHandler (event) {
+    event.preventDefault()
     Auth.login(loginUsername, loginPassword)
       .then(function(result) {
         if (isAuthenticated(result)) {
           history.push("/Members")
+        } else {
+          console.log(result.data);
+          setErrorMessage(result.data);
+          setLoginError(true);
         }
-        console.log(result)
       })
   }
 
@@ -47,6 +53,14 @@ function Login({ history }) {
                 className="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                 placeholder="password"
                 onChange={(e) => setLoginPassword(e.target.value)} />
+            </div>
+
+            <div>
+              {
+                loginError
+                  ? <p class="mt-2 text-sm text-red-600" id="email-error">{errorMessage}</p>
+                  : <div></div>
+              }
             </div>
 
             <div className="mt-6 flex items-center justify-between">
