@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import LineChart from "../Charts/LineChart"
-import Members from "../../pages/Members"
+import LineChart from "../Charts/LineChart";
+import Members from "../../pages/Members";
+import Title from "../Title";
 
 import Chart from "../Charts/Chart"
 
@@ -71,8 +72,17 @@ function Metrics(props) {
                     <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
                         'Mental', 'Other']} /></div>
             </div>
-            <LineChart data={buildLineChart(props.allPostsArray)} labels={buildLineChartXaxis(props.allPostsArray)} />
-        </div>
+            <div className="w-4/6 m-auto pt-16">
+            <Title>
+                Happiness Stock      
+            </Title>
+                <LineChart
+                    className="w-full"
+                    data={buildLineChart(props.allPostsArray)}
+                    labels={buildLineChartXaxis(props.allPostsArray)}
+                />
+            </div>
+            </div>
 
 
     );

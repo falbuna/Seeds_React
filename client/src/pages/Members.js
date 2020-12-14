@@ -4,6 +4,7 @@ import Auth from "../utils/Auth";
 import Metrics from "../components/Metrics/Metrics";
 import Gravatar from 'react-gravatar';
 import DailyStats from '../components/Stats';
+import Title from "../components/Title";
 import HistoryCalendar from '../components/HistoryCalendar';
 
 
@@ -59,12 +60,18 @@ function Members() {
                 </div>
               </div>
               <Metrics goodPosts={userState.good_post_array} badPosts={userState.bad_post_array} allPostsArray={userState.all_posts} />
+              <Title>
+                  Day Metrics
+              </Title>
               <DailyStats allPostsArray={userState.all_posts}></DailyStats>
               <div>
                 <div>
                   <div className="p-auto max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
                     <div className="max-w-4xl mx-auto text-center font-bold">
                       <div className="text-md text-white">
+                        <Title>
+                          Calendar
+                        </Title>
                         <HistoryCalendar />
                       </div>
                     </div>

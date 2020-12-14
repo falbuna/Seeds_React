@@ -49,12 +49,12 @@ function DailyStats(props) {
         SundayBadReason: "",
         SundayGoodArray: [],
         SundayBadArray: [],
-        MondaydayPercentage: 0,
+        MondayPercentage: 0,
         TuesdayPercentage: 0,
         WednesdayPercentage: 0,
         ThursdayPercentage: 0,
         FridayPercentage: 0,
-        SaturdaydayPercentage: 0,
+        SaturdayPercentage: 0,
         SundayPercentage: 0,
     });
     function test() {
@@ -193,12 +193,12 @@ function DailyStats(props) {
             FridayPoststotal: Fri.length,
             SaturdayPoststotal: Sat.length,
             SundayPoststotal: Sun.length,
-            MondaydayPercentage: MondayGoodDayPercentage,
+            MondayPercentage: MondayGoodDayPercentage,
             TuesdayPercentage: TuesdayGoodDayPercentage,
             WednesdayPercentage: WednesdayGoodDayPercentage,
             ThursdayPercentage: ThursdayGoodDayPercentage,
             FridayPercentage: FridayGoodDayPercentage,
-            SaturdaydayPercentage: SaturdayGoodDayPercentage,
+            SaturdayPercentage: SaturdayGoodDayPercentage,
             SundayPercentage: SundayGoodDayPercentage,
         });
     }
@@ -206,100 +206,88 @@ function DailyStats(props) {
         test();
         console.log(dailyState);
     }
+
+
     return (
         <div>
             <div className="m-auto w-5/6">
-                <dl class="mt-5 flex justify-around ...">
-                    <div className="text-center">
-                    <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Mon</dt>
-                            <dd class="text-center">
-                                <div class="text-center text-2xl font-semibold text-indigo-600">
-                                    {dailyState.MondaydayPercentage}%
-                                    <span class=" text-sm font-medium text-white">
-                                        {dailyState.MondayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                <dl class="mt-5 flex justify-around flex-wrap">
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Mon</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.MondayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.MondayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Tue</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.TuesdayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.TuesdayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Tue</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.TuesdayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.TuesdayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Wed</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.WednesdayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.WednesdayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Wed</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.WednesdayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.WednesdayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Thu</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.ThursdayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.ThursdayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Thu</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.ThursdayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.ThursdayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Fri</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.FridayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.FridayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Fri</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.FridayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.FridayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Sat</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.SaturdaydayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.SaturdayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Sat</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.SaturdayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.SaturdayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
-                    <div className="text-center m-auto">
-                        <div class="px- py-2 sm:p-6 bg-lime1 rounded-full h-48 w-48 text-center m-auto">
-                            <dt class="text-center text-3xl font-normal text-white">Sun</dt>
-                            <dd class="mt-1 text-center items-baseline md:block ">
-                                <div class="text-center items-baseline text-2xl font-semibold text-indigo-600">
-                                    {dailyState.SundayPercentage}%
-                                    <span class="ml-2 text-sm font-medium text-white">
-                                        {dailyState.SundayPoststotal} Posts
-                                    </span>
-                                </div>
-                            </dd>
-                        </div>
+                    <div className="text-center pr-2 border-r-2 ">
+                        <dt class="text-center text-3xl font-normal text-white">Sun</dt>
+                        <dd class="text-center">
+                            <div class="text-center text-2xl font-semibold text-lime1">
+                                {dailyState.SundayPercentage}%
+                            </div>
+                            <div class=" text-sm font-medium text-white">
+                                {dailyState.SundayPoststotal} Posts
+                            </div>
+                        </dd>
                     </div>
                 </dl>
             </div>
