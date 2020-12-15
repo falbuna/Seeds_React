@@ -71,6 +71,11 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
             gratitude: modalInfo.gratitude
         }).then(function () {
             setshowEvent(false);
+            setUserState({
+                ...userState,
+                postsRetrieved: false,
+                postsSorted: false
+            })
             window.location.reload()
         })
     }

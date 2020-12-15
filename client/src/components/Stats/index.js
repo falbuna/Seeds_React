@@ -143,26 +143,48 @@ function DailyStats(props) {
             }
         }
         var MondayGoodDayPercentage = Math.round(
-            (MonGood.length / Mon.length) * 100 + 1
+            (MonGood.length / Mon.length) * 100
         );
+        if (isNaN(MondayGoodDayPercentage)) {
+            MondayGoodDayPercentage = 0
+        }
         var TuesdayGoodDayPercentage = Math.round(
             (TueGood.length / Tue.length) * 100
         );
+        if (isNaN(TuesdayGoodDayPercentage)) {
+            TuesdayGoodDayPercentage = 0
+        }
+        console.log(TuesdayGoodDayPercentage);
         var WednesdayGoodDayPercentage = Math.round(
             (WedGood.length / Wed.length) * 100
         );
+        if (isNaN(WednesdayGoodDayPercentage)) {
+            WednesdayGoodDayPercentage = 0
+        }
         var ThursdayGoodDayPercentage = Math.round(
             (ThuGood.length / Thu.length) * 100
         );
+        if (isNaN(ThursdayGoodDayPercentage)) {
+            ThursdayGoodDayPercentage = 0
+        }
         var FridayGoodDayPercentage = Math.round(
             (FriGood.length / Fri.length) * 100
         );
+        if (isNaN(FridayGoodDayPercentage)) {
+            FridayGoodDayPercentage = 0
+        }
         var SaturdayGoodDayPercentage = Math.round(
             (SatGood.length / Sat.length) * 100
         );
+        if (isNaN(SaturdayGoodDayPercentage)) {
+            SaturdayGoodDayPercentage = 0
+        }
         var SundayGoodDayPercentage = Math.round(
             (SunGood.length / Sun.length) * 100
         );
+        if (isNaN(SundayGoodDayPercentage)) {
+            SundayGoodDayPercentage = 0
+        }
         setdailyState({
             ...dailyState,
             MondayArray: Mon,

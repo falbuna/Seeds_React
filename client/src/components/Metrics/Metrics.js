@@ -65,16 +65,28 @@ function Metrics(props) {
     return (
         <div>
             <div className="md:flex md:justify-around">
+                
                 <div className="w-full md:w-1/2 m-2 mb-6">
-                    <Chart title="good day results" data={filterArrays(props.goodPosts)} labels={['Work', 'Family', 'Friends',
-                        'Mental', 'Other']} /></div>
+                    {
+                        props.goodPosts.length == 0
+                            ? <div>You haven't recorded any good days yet.</div>
+                            : <Chart title="good day results" data={filterArrays(props.goodPosts)} labels={['Work', 'Family', 'Friends',
+                                'Mental', 'Other']} />
+                    }
+                </div>
+
                 <div className="w-full md:w-1/2 m-2 mb-6">
-                    <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
-                        'Mental', 'Other']} /></div>
+                    {
+                        props.badPosts.length == 0
+                            ? <div>You haven't recorded any bad days yet.</div>
+                            : <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
+                                'Mental', 'Other']} />
+                    }
+                </div>
             </div>
             <div className="w-4/6 m-auto pt-16">
-            <Title>
-                Happiness Stock      
+                <Title>
+                    Happiness Stock
             </Title>
                 <LineChart
                     className="w-full"
@@ -82,7 +94,7 @@ function Metrics(props) {
                     labels={buildLineChartXaxis(props.allPostsArray)}
                 />
             </div>
-            </div>
+        </div>
 
 
     );
