@@ -16,10 +16,11 @@ function GratitudePrompt({
     <p className="font-sans font-bold text-5xl text-lime1">What are you grateful for today?</p>
 
             <form onSubmit={handleLogGratitude}>
-                < input
+                < textarea
                     onChange={e => setGratitude(e.target.value)}
                     type="text"
                     rows={4}
+                    cols={40}
                 />
 
                 <button type="submit"

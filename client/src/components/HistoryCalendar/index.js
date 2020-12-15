@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Calendar, momentLocalizer} from 'react-big-calendar';
 import UserContext from "../../utils/UserContext";
 import moment from 'moment';
@@ -8,12 +8,10 @@ import "./style.css";
 
 const localizer = momentLocalizer(moment);
 
-// const CURRENT_DATE = moment().local().format("MM/DD/YYYY");
 
 function HistoryCalendar(){
 
   const {userState, setUserState} = useContext(UserContext);
-  // const [badDayDates, setBadDates] = useState([]);
   const [showEvent, setshowEvent] = useState(false);
   const [modalInfo, setModal] = useState({
     id: "",
@@ -23,24 +21,7 @@ function HistoryCalendar(){
     date: ""
   });
 
-  // useEffect(() => {
-  //   sortBadDays()
-  // }, [badDayDates])
-
-  // const eventStyleGetter = () => {
-  //   var style = {
-  //     backgroundColor: 'blue',
-  //     opacity: 0.8,
-  //     color: 'white',
-  //     height: '30px'
-  //   };
-  //   return {
-  //     style: style
-  //   }
-  // }
-
   const handleClick = (event) => {
-    console.log(event.resource)
     setModal({
       id: event.resource.id,
       day_quality: event.resource.day_quality,
@@ -49,26 +30,8 @@ function HistoryCalendar(){
       date: event.resource.createdAt
     })
     setshowEvent(true);
-    // console.log(modalInfo);
   }
 
-
-  // console.log(userState)
-  // console.log(userState.good_post_array);
-  // console.log(userState.bad_post_array);
-  // const day = userState.bad_post_array[0].createdAt;
-  // const utcDate =  moment.utc(day).toDate();
-  // const dayOfWeek = moment(userState.bad_post_array[0].createdAt).local().format("MM/DD/YYYY");
-  // console.log(dayOfWeek)
-
-//   function sortBadDays(){
-//     let badDates;
-//     for (let i = 0; i < userState.bad_post_array.length; i++){
-//     badDates = moment(userState.bad_post_array[i].createdAt).local().format("MM/DD/YYYY");
-//     badDayDates.push(badDates);
-//   }
-//   setBadDates(badDayDates)
-// }
 
 function createEvents(post_array){
   var Events = [];
@@ -99,8 +62,6 @@ function createEvents(post_array){
   })
   return Events;
 }
-
-console.log(createEvents(userState.bad_post_array))
 
       return (
         <div className="rbc-calendar bg-lime1 text-gray-700">

@@ -157,7 +157,6 @@ function Navbar() {
                                 : <a href="login"
                                     className="logButton mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
                         }
-
                     </div>
                     <div className="pt-4 pb-3 border-t border-gray-700">
                         <div className="flex items-center px-5 sm:px-6">
