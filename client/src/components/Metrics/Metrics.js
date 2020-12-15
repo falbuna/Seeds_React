@@ -66,19 +66,33 @@ function Metrics(props) {
         <div>
             <div className="md:flex md:justify-around">
                 
-                <div className="w-full md:w-1/2 m-2 mb-6">
+                <div className="w-full md:w-1/2 m-2 mb-6 text-center">
                     {
                         props.goodPosts.length == 0
-                            ? <div>You haven't recorded any good days yet.</div>
+                            ?
+                            <div class="bg-gray-50">
+                            <div class="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                    <span class="block text-white">You do not have any Good Posts yet</span>
+                                </h2>
+                            </div>
+                            </div>
                             : <Chart title="good day results" data={filterArrays(props.goodPosts)} labels={['Work', 'Family', 'Friends',
                                 'Mental', 'Other']} />
                     }
                 </div>
 
-                <div className="w-full md:w-1/2 m-2 mb-6">
+                <div className="w-full md:w-1/2 m-2 mb-6 text-center">
                     {
                         props.badPosts.length == 0
-                            ? <div>You haven't recorded any bad days yet.</div>
+                            ? 
+                            <div class="bg-gray-50">
+                                <div class="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                        <span class="block text-white">You do not have any Bad Posts yet</span>
+                                    </h2>
+                                </div>
+                            </div>
                             : <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
                                 'Mental', 'Other']} />
                     }

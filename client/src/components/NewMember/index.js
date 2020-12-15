@@ -17,10 +17,10 @@ function NewMember(props) {
                             Welcome <span className="member-name">{props.name}!</span>
                         </h2>
                         <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Congratulations for taking your first step to living a happier life. Getting started is easy! Click on New Posts to start logging your current day. Or click on about to learn more.
+                            This is the first step towards planting the <span className="text-lime1">seeds</span> for a happier life. Getting started is easy! Click on New Posts to start logging your current day. Or click on About to learn more.
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                            <div class="rounded-md shadow">
+                            <div>
                                 <Link to="posts">
                                     <div id="newPostButton" className="flex-shrink-0">
                                         <span className="rounded-md shadow-sm">
