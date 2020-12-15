@@ -19,10 +19,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-typical": "^0.1.3",
+    "serve": "^11.3.2",
     "tailwindcss": "^1.9.6",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "dev": "react-scripts start",
     "build:css": "tailwind build src/styles/style.css -o src/index.css",
     "watch:css": "tailwind build src/styles/style.css -o src/index.css -w",
     "start": "npm run watch:css & react-scripts start",
