@@ -149,12 +149,12 @@ function Posts( {history} ) {
                         user_id: userState.user_id
                     }).then(function () {
                         setPostSent(true);
-                        setUserState( { ...userState, postsRetrieved: false } )
+                        setUserState( { ...userState, postsRetrieved: false, postsSorted: false } )
                         history.push("/members");
                     })
                 } else {
                     setPostSent(true);
-                    setUserState( { ...userState, postsRetrieved: false } )
+                    setUserState( { ...userState, postsRetrieved: false, postsSorted: false } )
                     history.push("/members");
                 }
             })
