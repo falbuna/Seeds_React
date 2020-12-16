@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import Axios from "axios";
+import React, { useState } from "react";
 // import seedsLogo from "../assets/images/seedsLogo.png";
 import { withRouter } from "react-router-dom";
 
@@ -31,7 +30,7 @@ function Login({ history }) {
 
 
 
-    <div className="flex-grow flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div>
           <img className="mx-auto h-auto w-16" src="/images/seedsLogo.png" alt="Workflow" />
@@ -58,7 +57,7 @@ function Login({ history }) {
             <div>
               {
                 loginError
-                  ? <p class="mt-2 text-sm text-red-600" id="email-error">{errorMessage}</p>
+                  ? <p className="mt-2 text-sm text-red-600 px-3" id="email-error">{errorMessage}</p>
                   : <div></div>
               }
             </div>

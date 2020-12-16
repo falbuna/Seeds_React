@@ -2,6 +2,7 @@ import { withRouter } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import API from "../utils/API";
 import UserContext from "../utils/UserContext";
+import moment from 'moment';
 
 // import Auth from "../utils/Auth"
 
@@ -9,13 +10,15 @@ import DayQualityPrompt from "../components/DayQualityPrompt";
 import ReasonsPrompt from "../components/ReasonPrompt";
 import NewReasonPrompt from "../components/NewReasonPrompt";
 import GratitudePrompt from "../components/GratitudePrompt";
+import PostAlreadyMade from "../components/PostAlreadyMade";
 
-function Posts( {history} ) {
+function Posts({ history }) {
 
     const { userState, setUserState } = useContext(UserContext);
     const [reasons, setReasons] = useState([]);
     const [retrievedReasons, setRetrievedReasons] = useState(false);
-    const [postSent, setPostSent] = useState(false)
+    const [postSent, setPostSent] = useState(false);
+    const [postRecordedToday, setPostRecordedToday] = useState(false);
 
     const [postProgress, setPostProgress] = useState({
         dayQualityRecieved: false,
@@ -29,6 +32,22 @@ function Posts( {history} ) {
         reason: "",
         gratitude: ""
     })
+
+    useEffect(function () {
+        const allPostsToday = [];
+        const postsMadeToday = userState.all_posts.map(post => {
+            const dateOfPost = moment(post.createdAt).local().format("MM/DD/YYYY");
+            const todayDate = moment().local().format("MM/DD/YYYY");
+            if (dateOfPost == todayDate) {
+                allPostsToday.push(post)
+            }
+        })
+
+        if (allPostsToday.length !== 0) {
+            setPostRecordedToday(true);
+            console.log("nice")
+        }
+    }, [userState])
 
     useEffect(function () {
         let mounted = true
@@ -149,12 +168,12 @@ function Posts( {history} ) {
                         user_id: userState.user_id
                     }).then(function () {
                         setPostSent(true);
-                        setUserState( { ...userState, postsRetrieved: false, postsSorted: false } )
+                        setUserState({ ...userState, postsRetrieved: false, postsSorted: false })
                         history.push("/members");
                     })
                 } else {
                     setPostSent(true);
-                    setUserState( { ...userState, postsRetrieved: false, postsSorted: false } )
+                    setUserState({ ...userState, postsRetrieved: false, postsSorted: false })
                     history.push("/members");
                 }
             })
@@ -163,43 +182,45 @@ function Posts( {history} ) {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full">
-            {
-                retrievedReasons
-                    ? <div>
-                        {
-                            (!postProgress.dayQualityRecieved)
-                                // ? <div>day quality prompt</div>
-                                ? <DayQualityPrompt
-                                    logDayQuality={logDayQuality}
-                                />
-                                : (!postProgress.reasonRecieved)
-                                    ? <ReasonsPrompt
-                                        dayQuality={post.dayQuality}
-                                        reasons={reasons}
-                                        logReason={logReason}
-                                        showAddNewReason={showAddNewReason}
-                                    />
-                                    : (postProgress.addNewReason)
-                                        ? (!postProgress.newReasonRecieved)
-                                            ? <NewReasonPrompt
-                                                user_id={userState.user_id}
-                                                logNewReason={logNewReason}
-                                            />
-                                            : <GratitudePrompt
-                                                dayQuality={post.dayQuality}
-                                                logGratitude={logGratitude}
-                                            />
-                                        : <GratitudePrompt
-                                            dayQuality={post.dayQuality}
-                                            logGratitude={logGratitude}
+        <div className="flex-grow flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full">
+                {
+                    retrievedReasons
+                        ? <div>
+                            {
+                                postRecordedToday
+                                    ? <PostAlreadyMade />
+                                    : (!postProgress.dayQualityRecieved)
+                                        // ? <div>day quality prompt</div>
+                                        ? <DayQualityPrompt
+                                            logDayQuality={logDayQuality}
                                         />
-                        }
-                    </div>
-                    : <div>wait</div>
-            }
-        </div>
+                                        : (!postProgress.reasonRecieved)
+                                            ? <ReasonsPrompt
+                                                dayQuality={post.dayQuality}
+                                                reasons={reasons}
+                                                logReason={logReason}
+                                                showAddNewReason={showAddNewReason}
+                                            />
+                                            : (postProgress.addNewReason)
+                                                ? (!postProgress.newReasonRecieved)
+                                                    ? <NewReasonPrompt
+                                                        user_id={userState.user_id}
+                                                        logNewReason={logNewReason}
+                                                    />
+                                                    : <GratitudePrompt
+                                                        dayQuality={post.dayQuality}
+                                                        logGratitude={logGratitude}
+                                                    />
+                                                : <GratitudePrompt
+                                                    dayQuality={post.dayQuality}
+                                                    logGratitude={logGratitude}
+                                                />
+                            }
+                        </div>
+                        : <div>wait</div>
+                }
+            </div>
         </div>
     )
 }

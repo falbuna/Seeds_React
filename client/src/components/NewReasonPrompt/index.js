@@ -19,9 +19,11 @@ function NewReasonPrompt({
                     : <p className="font-sans font-bold text-5xl text-lime1">Dang... Why did you have a bad day?</p>
             }
             <form onSubmit={addNewReason}>
-                < input
+                < textarea
                     onChange={e => setNewReason(e.target.value)}
                     type="text"
+                    rows={4}
+                    cols={40}
                 />
 
                 <button type="submit"
