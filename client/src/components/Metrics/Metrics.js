@@ -14,10 +14,7 @@ function Metrics(props) {
     useEffect(function () {
         let mounted = true
         if (mounted) {
-            console.log(userState)
-            if (userState.loggedIn
-                && userState.postsRetrieved
-                && userState.postsSorted) {
+            if (userState.loggedIn) {
                 getReasons()
             }
         }
@@ -41,7 +38,6 @@ function Metrics(props) {
     }
 
     function filterArraysByReason (array) {
-        console.log(reasons)
         const arrayData = []
         reasons.forEach( reason => {
 
@@ -50,10 +46,12 @@ function Metrics(props) {
             })
             arrayData.push(reasonArray.length)
         })
+
+        console.log(arrayData)
+
         return arrayData
     }
 
-    console.log(filterArraysByReason(props.badPosts))
 
     function filterArrays(SpecificArray) {
         var work = 0
@@ -97,7 +95,7 @@ function Metrics(props) {
                 LineChartArray.push(lineChartValue)
             }
         }
-        console.log(LineChartArray)
+
         return LineChartArray
     }
     function buildLineChartXaxis(SpecificArray) {
@@ -125,7 +123,7 @@ function Metrics(props) {
                                 </h2>
                             </div>
                             </div>
-                            : <Chart title="good day results" data={filterArraysByReason(props.goodPosts)} labels={reasons} />
+                            : <Chart title="good day results" data={filterArrays(props.goodPosts)} labels={["Work", "Family", "Friends", "Mental", "Other"]} />
                     }
                 </div>
 
@@ -140,7 +138,7 @@ function Metrics(props) {
                                     </h2>
                                 </div>
                             </div>
-                            : <Chart title="bad day results" data={filterArraysByReason(props.badPosts)} labels={reasons} />
+                            : <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={["Work", "Family", "Friends", "Mental", "Other"]} />
                     }
                 </div>
             </div>
