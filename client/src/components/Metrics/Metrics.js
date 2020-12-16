@@ -47,7 +47,7 @@ function Metrics(props) {
             arrayData.push(reasonArray.length)
         })
 
-        console.log(arrayData)
+        // console.log(arrayData)
 
         return arrayData
     }

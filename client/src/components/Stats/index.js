@@ -154,7 +154,7 @@ function DailyStats(props) {
         if (isNaN(TuesdayGoodDayPercentage)) {
             TuesdayGoodDayPercentage = 0
         }
-        console.log(TuesdayGoodDayPercentage);
+        // console.log(TuesdayGoodDayPercentage);
         var WednesdayGoodDayPercentage = Math.round(
             (WedGood.length / Wed.length) * 100
         );
@@ -227,7 +227,7 @@ function DailyStats(props) {
     
     function getGoodDayPercentage() {
         test();
-        console.log(dailyState);
+        // console.log(dailyState);
     }
 
 
