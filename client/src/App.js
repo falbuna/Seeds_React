@@ -32,7 +32,7 @@ function App() {
 
   return (
 
-    <div className="bg-green1">
+    <div className="flex flex-col min-h-screen bg-green1">
       <UserContext.Provider value={{ userState, setUserState }}>
         <Router>
           <Navbar />

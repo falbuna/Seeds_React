@@ -21,7 +21,7 @@ function Signup({ history }) {
 
   return (
 
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div>
           <img className="mx-auto h-auto w-16" src="/images/seedsLogo.png" alt="Workflow" />

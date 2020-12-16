@@ -3,6 +3,7 @@ import UserContext from "../utils/UserContext";
 import Metrics from "../components/Metrics/Metrics";
 import DailyStats from '../components/Stats';
 import Title from "../components/Title";
+import GratitudeBanner from "../components/GratitudeBanner";
 import NewMember from "../components/NewMember";
 import HistoryCalendar from '../components/HistoryCalendar';
 
@@ -11,6 +12,7 @@ import HistoryCalendar from '../components/HistoryCalendar';
 function Members() {
 
   const {userState, setUserState} = useContext(UserContext);
+  const [showBanner, setShowBanner] = useState(true);
   
     useEffect(() => {
     if( !userState.postsRetrieved){
@@ -24,6 +26,11 @@ function Members() {
         userState.all_posts.length == 0
           ? <NewMember name={userState.userName} />
           : <div className="App">
+          {
+            showBanner
+            ? <GratitudeBanner setShowBanner={setShowBanner}/>
+            : <div className="App hidden"></div>
+          }
           <div className="bg-lime1">
             <div className="p-auto max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
               <div className="max-w-4xl mx-auto text-center font-bold">
