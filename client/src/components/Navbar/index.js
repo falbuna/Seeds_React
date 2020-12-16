@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Auth from "../../utils/Auth";
 import UserContext from "../../utils/UserContext";
 import Gravatar from 'react-gravatar';
+import moment from 'moment';
 
 // import seedsLogo from "../../assets/images/seedsLogo.png"
 
@@ -11,6 +12,8 @@ function Navbar() {
     const { userState, setUserState } = useContext(UserContext);
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);
+
+    const [postRecordedToday, setPostRecordedToday] = useState(false);
 
     function handleLogout() {
         Auth.logout()
@@ -27,6 +30,22 @@ function Navbar() {
             currentGoodDayStreak: 0
           })
     }
+
+    useEffect(function () {
+        const allPostsToday = [];
+        const postsMadeToday = userState.all_posts.map(post => {
+            const dateOfPost = moment(post.createdAt).local().format("MM/DD/YYYY");
+            const todayDate = moment().local().format("MM/DD/YYYY");
+            if (dateOfPost == todayDate) {
+                allPostsToday.push(post)
+            }
+        })
+
+        if (allPostsToday.length !== 0) {
+            setPostRecordedToday(true);
+            console.log("nice")
+        }
+    }, [userState])
 
     return (
 
@@ -84,7 +103,7 @@ function Navbar() {
                         </div>
                         <div className="flex items-center">
                             {
-                                userState.loggedIn
+                                userState.loggedIn && !postRecordedToday
                                     ?  <Link to="posts"> 
                                     <div id="newPostButton" className="flex-shrink-0">
                                         <span className="rounded-md shadow-sm">

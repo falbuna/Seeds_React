@@ -1,11 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import LineChart from "../Charts/LineChart";
-import Members from "../../pages/Members";
 import Title from "../Title";
+import API from "../../utils/API"
+import UserContext from "../../utils/UserContext";
 
 import Chart from "../Charts/Chart"
 
 function Metrics(props) {
+
+    const [reasons, setReasons] = useState([]);
+    const {userState, setUserState} = useContext(UserContext);
+
+    useEffect(function () {
+        let mounted = true
+        if (mounted) {
+            console.log(userState)
+            if (userState.loggedIn
+                && userState.postsRetrieved
+                && userState.postsSorted) {
+                getReasons()
+            }
+        }
+        return () => mounted = false;
+    }, [userState]);
+
+    const getReasons = function () {
+        API.getReason({
+            user_id: userState.user_id
+        }).then(function (result) {
+
+            var reasonArray = ["Work", "Family", "Friends", "Mental"];
+
+            result.data.map(reason => {
+                reasonArray.push(reason.reason);
+            })
+
+            setReasons(reasonArray)
+            // setReasons(reasonArray)
+        })
+    }
+
+    function filterArraysByReason (array) {
+        console.log(reasons)
+        const arrayData = []
+        reasons.forEach( reason => {
+
+            const reasonArray = array.filter(post => {
+                return post.reason === reason
+            })
+            arrayData.push(reasonArray.length)
+        })
+        return arrayData
+    }
+
+    console.log(filterArraysByReason(props.badPosts))
 
     function filterArrays(SpecificArray) {
         var work = 0
@@ -70,15 +118,14 @@ function Metrics(props) {
                     {
                         props.goodPosts.length == 0
                             ?
-                            <div class="bg-gray-50">
-                            <div class="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-                                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                                    <span class="block text-white">You do not have any Good Posts yet</span>
+                            <div className="bg-gray-50">
+                            <div className="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                    <span className="block text-white">You do not have any Good Posts yet</span>
                                 </h2>
                             </div>
                             </div>
-                            : <Chart title="good day results" data={filterArrays(props.goodPosts)} labels={['Work', 'Family', 'Friends',
-                                'Mental', 'Other']} />
+                            : <Chart title="good day results" data={filterArraysByReason(props.goodPosts)} labels={reasons} />
                     }
                 </div>
 
@@ -86,15 +133,14 @@ function Metrics(props) {
                     {
                         props.badPosts.length == 0
                             ? 
-                            <div class="bg-gray-50">
-                                <div class="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-                                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                                        <span class="block text-white">You do not have any Bad Posts yet</span>
+                            <div className="bg-gray-50">
+                                <div className="max-w-7xl lg:ml-20 mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                                    <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                        <span className="block text-white">You do not have any Bad Posts yet</span>
                                     </h2>
                                 </div>
                             </div>
-                            : <Chart title="bad day results" data={filterArrays(props.badPosts)} labels={['Work', 'Family', 'Friends',
-                                'Mental', 'Other']} />
+                            : <Chart title="bad day results" data={filterArraysByReason(props.badPosts)} labels={reasons} />
                     }
                 </div>
             </div>

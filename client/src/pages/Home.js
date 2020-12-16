@@ -15,7 +15,7 @@ function Home({ history }) {
 
     return (
 
-        <div className="flex h-screen/1">
+        <div className="flex flex-grow">
             <div id="welcomeScreen" className="m-auto text-center bg-green1">
 
                 <img id="seeds" className="m-auto text-center w-1/2 h-auto" src="/images/seeds.png" alt="Seeds" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 
 function DailyStats(props) {
@@ -224,6 +224,7 @@ function DailyStats(props) {
             SundayPercentage: SundayGoodDayPercentage,
         });
     }
+    
     function getGoodDayPercentage() {
         test();
         console.log(dailyState);
@@ -233,80 +234,80 @@ function DailyStats(props) {
     return (
         <div>
             <div className="m-auto w-5/6">
-                <dl class="mt-5 flex justify-around flex-wrap">
+                <dl className="mt-5 flex justify-around flex-wrap">
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Mon</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Mon</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.MondayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.MondayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Tue</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Tue</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.TuesdayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.TuesdayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Wed</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Wed</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.WednesdayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.WednesdayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Thu</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Thu</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.ThursdayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.ThursdayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Fri</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Fri</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.FridayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.FridayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Sat</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Sat</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.SaturdayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.SaturdayPoststotal} Posts
                             </div>
                         </dd>
                     </div>
                     <div className="text-center pr-2 border-r-2 ">
-                        <dt class="text-center text-3xl font-normal text-white">Sun</dt>
-                        <dd class="text-center">
-                            <div class="text-center text-2xl font-semibold text-lime1">
+                        <dt className="text-center text-3xl font-normal text-white">Sun</dt>
+                        <dd className="text-center">
+                            <div className="text-center text-2xl font-semibold text-lime1">
                                 {dailyState.SundayPercentage}%
                             </div>
-                            <div class=" text-sm font-medium text-white">
+                            <div className=" text-sm font-medium text-white">
                                 {dailyState.SundayPoststotal} Posts
                             </div>
                         </dd>
