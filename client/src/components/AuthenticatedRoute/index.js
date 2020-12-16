@@ -53,9 +53,9 @@ function AuthenticatedRoute({ Component, ...rest }) {
 
     useEffect(function () {
         if(postDataSorted) {
-            console.log("===================================")
-            console.log(userState);
-            console.log("===================================")
+            // console.log("===================================")
+            // console.log(userState);
+            // console.log("===================================")
         }
     }, [postDataSorted])
 

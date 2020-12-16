@@ -16,7 +16,7 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
     useEffect(function () {
         let mounted = true
         if (mounted) {
-            console.log(userState)
+            // console.log(userState)
             if (userState.loggedIn
                 && userState.postsRetrieved
                 && userState.postsSorted) {
@@ -27,7 +27,7 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
     }, [userState]);
 
     useEffect(function () {
-        console.log(userState)
+        // console.log(userState)
     }, [userState])
 
     const getReasons = function () {

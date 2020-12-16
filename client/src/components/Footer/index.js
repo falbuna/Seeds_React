@@ -39,9 +39,6 @@ function Footer() {
                   <a href="/members" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
                     Members
                   </a>
-                  <a href="/History" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
-                    History
-                  </a>
                   <a href="home" className="px-5 py-2 text-base text-gray-500 hover:text-gray-900" onClick={handleLogout}>
                     Logout
                   </a>
