@@ -205,7 +205,7 @@ function Posts({ history }) {
                                             : (postProgress.addNewReason)
                                                 ? (!postProgress.newReasonRecieved)
                                                     ? <NewReasonPrompt
-                                                        user_id={userState.user_id}
+                                                        dayQuality={post.dayQuality}
                                                         logNewReason={logNewReason}
                                                     />
                                                     : <GratitudePrompt

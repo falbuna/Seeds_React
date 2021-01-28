@@ -99,13 +99,13 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
                             <div className="inline-block align-bottom bg-white text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
 
 
-                                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                <div className="bg-green1 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                     <div className="sm:flex sm:items-start">
 
                                         {
                                             edit
                                                 ? <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                    <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                    <h3 className="text-lg leading-6 font-medium text-lime1" id="modal-headline">
                                                         Day Quality:
                                         </h3>
 
@@ -138,7 +138,7 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
                                                         </p>
                                                     </div>
 
-                                                    <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                    <h3 className="text-lg leading-6 font-medium text-lime1" id="modal-headline">
                                                         Reason for your {modalInfo.day_quality} day:
                                         </h3>
 
@@ -179,7 +179,7 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
                                                         </div>
                                                     </div>
 
-                                                    <h3 className="mt-1 text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                    <h3 className="mt-1 text-lg leading-6 font-medium text-lime1" id="modal-headline">
                                                         You were grateful for:
                                         </h3>
 
@@ -191,21 +191,21 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
                                                 </div>
 
                                                 : <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                    <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                    <h3 className="text-lg leading-6 font-medium text-lime1" id="modal-headline">
                                                         Reason for your {modalInfo.day_quality} day:
                                         </h3>
 
                                                     <div>
-                                                        <p className="text-sm text-gray-500">
+                                                        <p className="text-sm text-white">
                                                             {modalInfo.reason}
                                                         </p>
                                                     </div>
 
-                                                    <h3 className="mt-1 text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                    <h3 className="mt-1 text-lg leading-6 font-medium text-lime1" id="modal-headline">
                                                         Gratitude for the day:
                                         </h3>
                                                     <div>
-                                                        <p className="text-sm text-gray-500">
+                                                        <p className="text-sm text-white">
                                                             {modalInfo.gratitude}
                                                         </p>
                                                     </div>
@@ -217,15 +217,15 @@ function EventModal({ modalInfo, setshowEvent, showEvent, setModal }) {
 
                                     </div>
                                 </div>
-                                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                <div className="bg-green1 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                     {
                                         edit
-                                            ? <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                            ? <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-lime1 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                                                 onClick={handleSubmitChanges}
                                             >
                                                 Submit
                       </button>
-                                            : <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                            : <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-lime1 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                                                 onClick={() => setEdit(true)}
                                             >
                                                 Edit
